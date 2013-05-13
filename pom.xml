@@ -6,18 +6,37 @@
 
     <groupId>com.formation</groupId>
     <artifactId>spring-library</artifactId>
-    <version>0.1</version>
+    <version>0.1.IOC</version>
+
+    <properties>
+        <junit.version>4.11</junit.version>
+        <spring.version>3.2.2.RELEASE</spring.version>
+    </properties>
 
     <dependencies>
+        <!-- Tests -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Application -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>3.2.2.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>3.2.2.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
     </dependencies>
 </project>

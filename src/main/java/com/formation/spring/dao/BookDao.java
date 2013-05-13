@@ -1,6 +1,8 @@
 package com.formation.spring.dao;
 
-import org.springframework.stereotype.Repository;
+import com.formation.spring.beans.Book;
+
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,7 +10,19 @@ import org.springframework.stereotype.Repository;
  * Date: 13/05/13
  * Time: 14:44
  */
-@Repository
 public interface BookDao {
 
+    Book save(Book book);
+
+    Set<Book> findAll();
+
+    Book findById(int id);
+
+    Book findByName(String name);
+
+    Book update(Book book);
+
+    void delete(Book book);
+
+    int size();
 }
