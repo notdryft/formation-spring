@@ -22,7 +22,7 @@ public interface BookDao {
 
     Book update(Book book);
 
-    void delete(Book book);
+    boolean delete(Book book);
 
     int size();
 }

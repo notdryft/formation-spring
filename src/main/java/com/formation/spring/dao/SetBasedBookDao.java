@@ -77,8 +77,8 @@ public class SetBasedBookDao implements BookDao {
     }
 
     @Override
-    public void delete(Book book) {
-        repository.remove(book);
+    public boolean delete(Book book) {
+        return repository.remove(book);
     }
 
     @Override

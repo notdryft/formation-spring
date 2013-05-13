@@ -22,7 +22,6 @@ import static org.junit.Assert.assertEquals;
 public class BookDaoTest {
 
     @Autowired
-    @Qualifier("setBasedBookDao")
     private BookDao bookDao;
 
     @Test

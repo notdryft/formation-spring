@@ -1,6 +1,11 @@
 package com.formation.spring.services;
 
+import com.formation.spring.beans.Book;
+import com.formation.spring.dao.BookDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,4 +16,45 @@ import org.springframework.stereotype.Service;
 @Service
 public class SimpleLibraryService implements LibraryService {
 
+    @Autowired
+    private BookDao dao;
+
+    public SimpleLibraryService() {
+        // Do nothing.
+    }
+
+    @Override
+    public Book save(Book book) {
+        return dao.save(book);
+    }
+
+    @Override
+    public Set<Book> findAll() {
+        return dao.findAll();
+    }
+
+    @Override
+    public Book findById(int id) {
+        return dao.findById(id);
+    }
+
+    @Override
+    public Book findByName(String name) {
+        return dao.findByName(name);
+    }
+
+    @Override
+    public Book update(Book book) {
+        return dao.update(book);
+    }
+
+    @Override
+    public boolean delete(Book book) {
+        return dao.delete(book);
+    }
+
+    @Override
+    public int count() {
+        return dao.size();
+    }
 }
