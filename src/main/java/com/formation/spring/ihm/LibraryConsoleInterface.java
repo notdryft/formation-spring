@@ -1,6 +1,8 @@
 package com.formation.spring.ihm;
 
 import com.formation.spring.beans.Book;
+import com.formation.spring.commands.Command;
+import com.formation.spring.commands.Interpreter;
 import com.formation.spring.services.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,6 +24,9 @@ public class LibraryConsoleInterface {
 
     @Autowired
     private LibraryService libraryService;
+
+    @Autowired
+    private Interpreter interpreter;
 
     private BufferedReader in;
 
@@ -45,8 +50,12 @@ public class LibraryConsoleInterface {
         showMenu();
 
         try {
-            String line = in.readLine();
-            System.out.println("line = " + line);
+            while (true) {
+                String line = in.readLine();
+
+                Command command = interpreter.parse(line);
+                command.execute();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

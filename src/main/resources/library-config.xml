@@ -6,4 +6,16 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="com.formation.spring"/>
+
+    <bean id="unknownCommand" class="com.formation.spring.commands.UnknownCommand"/>
+    <bean id="exitCommand" class="com.formation.spring.commands.ExitCommand"/>
+
+    <bean id="interpreter" class="com.formation.spring.commands.Interpreter">
+        <constructor-arg>
+            <map>
+                <entry key="*" value-ref="unknownCommand"/>
+                <entry key="exit" value-ref="exitCommand"/>
+            </map>
+        </constructor-arg>
+    </bean>
 </beans>
