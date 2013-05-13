@@ -1,6 +1,5 @@
 package com.formation.spring.main;
 
-import com.formation.spring.ihm.LibraryConsoleInterface;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,6 +13,9 @@ public class Main {
 
     public static void main(String[] args) {
         ApplicationContext app = new ClassPathXmlApplicationContext("library-config.xml");
-        app.getBean("console", LibraryConsoleInterface.class).start();
+
+        Launcher launcher = app.getBean("launcher", Launcher.class);
+        launcher.init();
+        launcher.start();
     }
 }

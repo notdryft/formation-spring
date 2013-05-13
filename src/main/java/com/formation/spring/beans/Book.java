@@ -18,6 +18,7 @@ public class Book implements Comparable<Book> {
     private String name;
 
     public Book() {
+        // Do nothing.
     }
 
     public Book(String name) {
