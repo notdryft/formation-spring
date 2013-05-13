@@ -1,14 +1,11 @@
 package com.formation.spring.dao;
 
-import org.springframework.stereotype.Repository;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Guillaume Corré
  * Date: 13/05/13
- * Time: 14:44
+ * Time: 15:01
  */
-@Repository
-public interface BookDao {
+public class SetBasedBookDao implements BookDao {
 
 }
