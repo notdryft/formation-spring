@@ -30,7 +30,7 @@ public class Receiver {
         sb.append("Book store, make your choice!").append(lineSeparator);
         sb.append("-----------------------------").append(lineSeparator);
         sb.append("- books: list all books").append(lineSeparator);
-        sb.append("- exit: exit the application").append(lineSeparator);
+        sb.append("- quit: exit the application").append(lineSeparator);
 
         System.out.print(sb.toString());
     }
