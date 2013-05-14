@@ -5,9 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.formation.spring.beans"/>
     <context:component-scan base-package="com.formation.spring.dao"/>
-    <context:component-scan base-package="com.formation.spring.ihm"/>
-    <context:component-scan base-package="com.formation.spring.main"/>
     <context:component-scan base-package="com.formation.spring.services"/>
 </beans>
