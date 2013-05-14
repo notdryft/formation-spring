@@ -22,7 +22,6 @@
     <bean id="borrowCommand" class="com.formation.spring.commands.books.BorrowCommand"/>
     <bean id="lendCommand" class="com.formation.spring.commands.books.LendCommand"/>
 
-
     <bean id="interpreter" class="com.formation.spring.commands.Interpreter">
         <constructor-arg>
             <map>
