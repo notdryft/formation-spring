@@ -17,6 +17,8 @@ public class Book implements Comparable<Book> {
 
     private String name;
 
+    private boolean borrowed;
+
     public Book() {
         // Do nothing.
     }
@@ -41,10 +43,20 @@ public class Book implements Comparable<Book> {
         this.name = name;
     }
 
+    public boolean isBorrowed() {
+        return borrowed;
+    }
+
+    public void setBorrowed(boolean borrowed) {
+        this.borrowed = borrowed;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Book{");
-        sb.append("name='").append(name).append('\'');
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", borrowed=").append(borrowed);
         sb.append('}');
         return sb.toString();
     }
@@ -58,7 +70,7 @@ public class Book implements Comparable<Book> {
         if (object instanceof Book) {
             Book book = (Book) object;
 
-            return id == book.id && name.equals(book.name);
+            return id == book.id && name.equals(book.name) && borrowed == book.borrowed;
         }
 
         return false;
@@ -68,17 +80,22 @@ public class Book implements Comparable<Book> {
     public int hashCode() {
         int result = id;
         result = 31 * result + name.hashCode();
-
+        result = 31 * result + (borrowed ? 1 : 0);
         return result;
     }
 
     @Override
     public int compareTo(Book book) {
-        int diffId = id - book.id;
-        if (diffId != 0) {
-            return diffId;
+        int idDiff = id - book.id;
+        if (idDiff != 0) {
+            return idDiff;
         }
 
-        return name.compareTo(book.name);
+        int nameDiff = name.compareTo(book.name);
+        if (nameDiff != 0) {
+            return nameDiff;
+        }
+
+        return borrowed == book.borrowed ? 0 : (borrowed ? 1 : -1);
     }
 }

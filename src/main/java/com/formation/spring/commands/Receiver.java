@@ -40,7 +40,13 @@ public class Receiver {
         sb.append("Book list, make your choice!").append(lineSeparator);
         sb.append("----------------------------").append(lineSeparator);
         for (Book book : libraryService.findAll()) {
-            sb.append(book.getId()).append(" : ").append(book.getName()).append(lineSeparator);
+            sb.append(book.getId()).append(" : ").append(book.getName());
+
+            if (book.isBorrowed()) {
+                sb.append(" (borrowed)");
+            }
+
+            sb.append(lineSeparator);
         }
 
         System.out.print(sb.toString());
@@ -50,6 +56,28 @@ public class Receiver {
         StringBuilder sb = new StringBuilder();
 
         sb.append("You choose ").append(libraryService.findById(id)).append(lineSeparator);
+
+        System.out.println(sb.toString());
+    }
+
+    public void borrowBook(int id) {
+        StringBuilder sb = new StringBuilder();
+
+        Book book = libraryService.findById(id);
+        sb.append("Borrowing book ").append(book.toString());
+
+        book.setBorrowed(true);
+
+        System.out.println(sb.toString());
+    }
+
+    public void lendBook(int id) {
+        StringBuilder sb = new StringBuilder();
+
+        Book book = libraryService.findById(id);
+        sb.append("Lending book ").append(book.toString());
+
+        book.setBorrowed(false);
 
         System.out.println(sb.toString());
     }

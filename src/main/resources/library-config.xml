@@ -8,10 +8,14 @@
     <context:component-scan base-package="com.formation.spring"/>
 
     <bean id="unknownCommand" class="com.formation.spring.commands.UnknownCommand"/>
+
     <bean id="booksCommand" class="com.formation.spring.commands.BooksCommand"/>
 
     <bean id="selectCommand" class="com.formation.spring.commands.SelectCommand"/>
     <bean id="deleteCommand" class="com.formation.spring.commands.DeleteCommand"/>
+
+    <bean id="borrowCommand" class="com.formation.spring.commands.BorrowCommand"/>
+    <bean id="lendCommand" class="com.formation.spring.commands.LendCommand"/>
 
     <bean id="exitCommand" class="com.formation.spring.commands.ExitCommand"/>
 
@@ -19,9 +23,15 @@
         <constructor-arg>
             <map>
                 <entry key="*" value-ref="unknownCommand"/>
+
+                <entry key="books" value-ref="booksCommand"/>
+
                 <entry key="select" value-ref="selectCommand"/>
                 <entry key="delete" value-ref="deleteCommand"/>
-                <entry key="books" value-ref="booksCommand"/>
+
+                <entry key="borrow" value-ref="borrowCommand"/>
+                <entry key="lend" value-ref="lendCommand"/>
+
                 <entry key="quit" value-ref="exitCommand"/>
                 <entry key="exit" value-ref="exitCommand"/>
             </map>
