@@ -1,16 +1,11 @@
 package com.formation.spring.beans;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Guillaume Corré
  * Date: 14/05/13
  * Time: 17:13
  */
-@Component
-@Scope("prototype")
 public class User {
 
     private int id;

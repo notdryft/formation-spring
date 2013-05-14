@@ -1,16 +1,11 @@
 package com.formation.spring.beans;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Guillaume Corré
  * Date: 13/05/13
  * Time: 14:43
  */
-@Component
-@Scope("prototype")
 public class Book implements Comparable<Book> {
 
     private int id;
