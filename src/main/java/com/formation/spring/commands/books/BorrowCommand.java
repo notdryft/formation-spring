@@ -2,6 +2,7 @@ package com.formation.spring.commands.books;
 
 import com.formation.spring.commands.Command;
 import com.formation.spring.commands.Receiver;
+import com.formation.spring.exceptions.LibrarySecurityException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -43,6 +44,10 @@ public class BorrowCommand implements Command {
 
     @Override
     public void execute() {
-        receiver.borrowBook(bookChoice);
+        try {
+            receiver.borrowBook(bookChoice);
+        } catch (LibrarySecurityException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

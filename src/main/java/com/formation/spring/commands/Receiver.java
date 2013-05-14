@@ -1,6 +1,7 @@
 package com.formation.spring.commands;
 
 import com.formation.spring.beans.Book;
+import com.formation.spring.exceptions.LibrarySecurityException;
 import com.formation.spring.services.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -60,7 +61,7 @@ public class Receiver {
         System.out.println(sb.toString());
     }
 
-    public void borrowBook(int id) {
+    public void borrowBook(int id) throws LibrarySecurityException {
         StringBuilder sb = new StringBuilder();
 
         Book book = libraryService.findById(id);
