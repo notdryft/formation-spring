@@ -24,5 +24,5 @@ public interface BookDao {
 
     boolean delete(Book book);
 
-    int size();
+    int count();
 }

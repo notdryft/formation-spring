@@ -26,12 +26,12 @@ public class BookDaoTest {
     @Test
     @DirtiesContext
     public void testCreate() {
-        assertEquals(0, bookDao.size());
+        assertEquals(0, bookDao.count());
 
         Book book = new Book("Canti");
         bookDao.save(book);
 
-        assertEquals(1, bookDao.size());
+        assertEquals(1, bookDao.count());
     }
 
     @Test
@@ -61,15 +61,15 @@ public class BookDaoTest {
     @Test
     @DirtiesContext
     public void testDelete() {
-        assertEquals(0, bookDao.size());
+        assertEquals(0, bookDao.count());
 
         Book book = new Book("Giacomo");
         book = bookDao.save(book);
 
-        assertEquals(1, bookDao.size());
+        assertEquals(1, bookDao.count());
 
         bookDao.delete(book);
 
-        assertEquals(0, bookDao.size());
+        assertEquals(0, bookDao.count());
     }
 }

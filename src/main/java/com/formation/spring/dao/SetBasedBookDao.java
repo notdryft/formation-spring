@@ -39,7 +39,7 @@ public class SetBasedBookDao implements BookDao {
 
     @Override
     public Set<Book> findAll() {
-        return repository;
+        return new TreeSet<Book>(repository);
     }
 
     @Override
@@ -82,7 +82,7 @@ public class SetBasedBookDao implements BookDao {
     }
 
     @Override
-    public int size() {
+    public int count() {
         return repository.size();
     }
 }

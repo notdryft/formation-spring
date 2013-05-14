@@ -57,6 +57,6 @@ public class SimpleLibraryService implements LibraryService {
 
     @Override
     public int count() {
-        return dao.size();
+        return dao.count();
     }
 }

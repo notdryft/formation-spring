@@ -1,16 +1,17 @@
-package com.formation.spring.dao;
+package com.formation.spring.services;
 
+import com.formation.spring.beans.Book;
 import com.formation.spring.beans.User;
 
 import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Guillaume Corré
- * Date: 14/05/13
- * Time: 17:13
+ * User: notdryft
+ * Date: 5/14/13
+ * Time: 9:07 PM
  */
-public interface UserDao {
+public interface UserService {
 
     User save(User user);
 

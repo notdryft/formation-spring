@@ -79,7 +79,7 @@ public class MapBasedUserDao implements UserDao {
     }
 
     @Override
-    public int size() {
+    public int count() {
         return repository.size();
     }
 }
