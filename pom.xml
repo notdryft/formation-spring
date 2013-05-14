@@ -6,12 +6,11 @@
 
     <groupId>com.formation</groupId>
     <artifactId>spring-library</artifactId>
-    <version>0.2.AOP</version>
+    <version>0.1.AOP</version>
 
     <properties>
         <junit.version>4.11</junit.version>
         <spring.version>3.2.2.RELEASE</spring.version>
-        <aspectj.version>1.7.2</aspectj.version>
     </properties>
 
     <dependencies>
@@ -39,23 +38,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
-        </dependency>
-        <!-- AOP -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>${spring.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${aspectj.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version>
         </dependency>
     </dependencies>
 </project>

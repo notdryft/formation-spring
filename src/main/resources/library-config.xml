@@ -9,15 +9,20 @@
 
     <bean id="unknownCommand" class="com.formation.spring.commands.UnknownCommand"/>
     <bean id="booksCommand" class="com.formation.spring.commands.BooksCommand"/>
-    <bean id="choiceCommand" class="com.formation.spring.commands.ChoiceCommand"/>
+
+    <bean id="selectCommand" class="com.formation.spring.commands.SelectCommand"/>
+    <bean id="deleteCommand" class="com.formation.spring.commands.DeleteCommand"/>
+
     <bean id="exitCommand" class="com.formation.spring.commands.ExitCommand"/>
 
     <bean id="interpreter" class="com.formation.spring.commands.Interpreter">
         <constructor-arg>
             <map>
                 <entry key="*" value-ref="unknownCommand"/>
-                <entry key="int" value-ref="choiceCommand"/>
+                <entry key="select" value-ref="selectCommand"/>
+                <entry key="delete" value-ref="deleteCommand"/>
                 <entry key="books" value-ref="booksCommand"/>
+                <entry key="quit" value-ref="exitCommand"/>
                 <entry key="exit" value-ref="exitCommand"/>
             </map>
         </constructor-arg>

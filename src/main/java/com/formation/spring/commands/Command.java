@@ -5,9 +5,18 @@ package com.formation.spring.commands;
  * User: notdryft
  * Date: 5/13/13
  * Time: 9:04 PM
- * To change this template use File | Settings | File Templates.
  */
 public interface Command {
+
+    int getMaxParameters();
+
+    /**
+     * Should fail if args.length > getMaxParameters()
+     *
+     * @param args
+     * @return the validity of the arguments as a boolean
+     */
+    boolean setParameters(String[] args);
 
     void execute();
 }

@@ -1,5 +1,8 @@
 package com.formation.spring.commands;
 
+import com.formation.spring.exceptions.ParseException;
+import com.formation.spring.tools.StringTools;
+
 import java.util.Map;
 
 /**
@@ -7,40 +10,40 @@ import java.util.Map;
  * User: notdryft
  * Date: 5/13/13
  * Time: 9:34 PM
- * To change this template use File | Settings | File Templates.
  */
 public class Interpreter {
 
     private Map<String, Command> commands;
 
-    private int lastParsedInt;
-
     public Interpreter(Map<String, Command> commands) {
         this.commands = commands;
     }
 
-    private boolean isInteger(String str) {
-        try {
-            lastParsedInt = Integer.parseInt(str);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-
-        return true;
-    }
-
-    public Command parse(String name) {
-        if (isInteger(name)) {
-            ChoiceCommand command = (ChoiceCommand) commands.get("int");
-            command.setChoice(lastParsedInt);
-
-            return command;
-        }
-
-        if (!commands.containsKey(name) || name.equals("int")) {
+    public Command parse(String line) throws ParseException {
+        if (line == null || line.equals("")) {
             return commands.get("*");
         }
 
-        return commands.get(name);
+        String[] splitted = line.split(" ");
+
+        String key = splitted[0];
+        if (!commands.containsKey(key)) {
+            return commands.get("*");
+        }
+
+        Command command = commands.get(key);
+        if (splitted.length != command.getMaxParameters() + 1) {
+            throw new ParseException("Nombre de paramètres invalides");
+        }
+
+        if (splitted.length > 1) {
+            // TODO catch exception from set then rethrow as nested
+            boolean valid = command.setParameters(StringTools.getArgs(splitted));
+            if (!valid) {
+                throw new ParseException("Paramètres invalides");
+            }
+        }
+
+        return command;
     }
 }

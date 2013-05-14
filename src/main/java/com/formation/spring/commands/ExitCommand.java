@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  * User: notdryft
  * Date: 5/13/13
  * Time: 9:30 PM
- * To change this template use File | Settings | File Templates.
  */
 public class ExitCommand implements Command {
 
@@ -16,6 +15,16 @@ public class ExitCommand implements Command {
     @Autowired
     public ExitCommand(Receiver receiver) {
         this.receiver = receiver;
+    }
+
+    @Override
+    public int getMaxParameters() {
+        return 0;
+    }
+
+    @Override
+    public boolean setParameters(String[] args) {
+        return false;
     }
 
     @Override

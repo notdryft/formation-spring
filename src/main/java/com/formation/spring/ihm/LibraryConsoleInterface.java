@@ -4,6 +4,7 @@ import com.formation.spring.beans.Book;
 import com.formation.spring.commands.Command;
 import com.formation.spring.commands.Interpreter;
 import com.formation.spring.commands.Receiver;
+import com.formation.spring.exceptions.ParseException;
 import com.formation.spring.services.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,16 +34,22 @@ public class LibraryConsoleInterface {
         in = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    @SuppressWarnings("InfiniteLoopStatement")
     public void start() {
         receiver.showMenu();
 
         try {
             while (true) {
                 System.out.print("> ");
+
                 String line = in.readLine();
 
-                Command command = interpreter.parse(line);
-                command.execute();
+                try {
+                    Command command = interpreter.parse(line);
+                    command.execute();
+                } catch (ParseException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

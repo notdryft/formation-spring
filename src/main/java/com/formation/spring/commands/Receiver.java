@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
  * User: notdryft
  * Date: 5/13/13
  * Time: 11:23 PM
- * To change this template use File | Settings | File Templates.
  */
 @Component
 public class Receiver {
@@ -50,7 +49,18 @@ public class Receiver {
     public void showBook(int id) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("You choose: ").append(libraryService.findById(id)).append(lineSeparator);
+        sb.append("You choose ").append(libraryService.findById(id)).append(lineSeparator);
+
+        System.out.println(sb.toString());
+    }
+
+    public void deleteBook(int id) {
+        StringBuilder sb = new StringBuilder();
+
+        Book book = libraryService.findById(id);
+        sb.append("Deleting book ").append(book);
+
+        libraryService.delete(book);
 
         System.out.println(sb.toString());
     }
