@@ -6,24 +6,22 @@ import org.springframework.stereotype.Component;
 /**
  * Created with IntelliJ IDEA.
  * User: Guillaume Corré
- * Date: 13/05/13
- * Time: 14:43
+ * Date: 14/05/13
+ * Time: 17:13
  */
 @Component
 @Scope("prototype")
-public class Book implements Comparable<Book> {
+public class User {
 
     private int id;
 
     private String name;
 
-    private boolean borrowed;
-
-    public Book() {
+    public User() {
         // Do nothing.
     }
 
-    public Book(String name) {
+    public User(String name) {
         this.name = name;
     }
 
@@ -43,20 +41,11 @@ public class Book implements Comparable<Book> {
         this.name = name;
     }
 
-    public boolean isBorrowed() {
-        return borrowed;
-    }
-
-    public void setBorrowed(boolean borrowed) {
-        this.borrowed = borrowed;
-    }
-
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Book{");
+        final StringBuilder sb = new StringBuilder("User{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
-        sb.append(", borrowed=").append(borrowed);
         sb.append('}');
         return sb.toString();
     }
@@ -67,10 +56,10 @@ public class Book implements Comparable<Book> {
             return false;
         }
 
-        if (object instanceof Book) {
-            Book book = (Book) object;
+        if (object instanceof User) {
+            User user = (User) object;
 
-            return id == book.id && name.equals(book.name) && borrowed == book.borrowed;
+            return id == user.id && name.equals(user.name);
         }
 
         return false;
@@ -80,23 +69,7 @@ public class Book implements Comparable<Book> {
     public int hashCode() {
         int result = id;
         result = 31 * result + name.hashCode();
-        result = 31 * result + (borrowed ? 1 : 0);
 
         return result;
-    }
-
-    @Override
-    public int compareTo(Book book) {
-        int idDiff = id - book.id;
-        if (idDiff != 0) {
-            return idDiff;
-        }
-
-        int nameDiff = name.compareTo(book.name);
-        if (nameDiff != 0) {
-            return nameDiff;
-        }
-
-        return borrowed == book.borrowed ? 0 : (borrowed ? 1 : -1);
     }
 }

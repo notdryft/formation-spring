@@ -3,7 +3,6 @@ package com.formation.spring.dao;
 import com.formation.spring.beans.Book;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -71,6 +70,7 @@ public class SetBasedBookDao implements BookDao {
 
         if (b != null) {
             b.setName(book.getName());
+            b.setBorrowed(book.isBorrowed());
         }
 
         return b;
