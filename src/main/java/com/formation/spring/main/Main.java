@@ -12,7 +12,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-        ApplicationContext app = new ClassPathXmlApplicationContext("library-config.xml", "commands-config.xml", "aspects-config.xml");
+        ApplicationContext app = new ClassPathXmlApplicationContext(
+                "library-config.xml",
+                "commands-config.xml",
+                "aspects-config.xml"
+        );
 
         Launcher launcher = app.getBean("launcher", Launcher.class);
         launcher.init();

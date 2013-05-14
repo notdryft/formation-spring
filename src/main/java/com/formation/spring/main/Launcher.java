@@ -1,8 +1,10 @@
 package com.formation.spring.main;
 
 import com.formation.spring.beans.Book;
+import com.formation.spring.beans.User;
 import com.formation.spring.ihm.LibraryConsoleInterface;
 import com.formation.spring.services.LibraryService;
+import com.formation.spring.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,18 +21,32 @@ public class Launcher {
     private LibraryService libraryService;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private LibraryConsoleInterface libraryConsoleInterface;
 
     public Launcher() {
         // Do nothing.
     }
 
-    public void init() {
+    private void initBooks() {
         libraryService.save(new Book("Canti"));
         libraryService.save(new Book("Schimatrice+"));
         libraryService.save(new Book("Seconde fondation"));
         libraryService.save(new Book("Heart of Darkness"));
         libraryService.save(new Book("Lettres à un jeune poète"));
+    }
+
+    private void initUsers() {
+        userService.save(new User("Guillaume"));
+        userService.save(new User("Glenn"));
+        userService.save(new User("Evgeny"));
+    }
+
+    public void init() {
+        initBooks();
+        initUsers();
     }
 
     public void start() {
