@@ -1,21 +1,23 @@
-package com.formation.spring.commands;
+package com.formation.spring.commands.books;
 
+import com.formation.spring.commands.Command;
+import com.formation.spring.commands.Receiver;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Guillaume Corré
  * Date: 14/05/13
- * Time: 16:39
+ * Time: 15:24
  */
-public class LendCommand implements Command {
+public class DeleteCommand implements Command {
 
     private Receiver receiver;
 
     private int bookChoice;
 
     @Autowired
-    public LendCommand(Receiver receiver) {
+    public DeleteCommand(Receiver receiver) {
         this.receiver = receiver;
     }
 
@@ -41,6 +43,6 @@ public class LendCommand implements Command {
 
     @Override
     public void execute() {
-        receiver.lendBook(bookChoice);
+        receiver.deleteBook(bookChoice);
     }
 }

@@ -1,5 +1,7 @@
-package com.formation.spring.commands;
+package com.formation.spring.commands.books;
 
+import com.formation.spring.commands.Command;
+import com.formation.spring.commands.Receiver;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

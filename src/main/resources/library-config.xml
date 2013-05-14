@@ -7,22 +7,33 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.formation.spring"/>
 
+    <!-- Main commands -->
+
     <bean id="unknownCommand" class="com.formation.spring.commands.UnknownCommand"/>
-
-    <bean id="booksCommand" class="com.formation.spring.commands.BooksCommand"/>
-
-    <bean id="selectCommand" class="com.formation.spring.commands.SelectCommand"/>
-    <bean id="deleteCommand" class="com.formation.spring.commands.DeleteCommand"/>
-
-    <bean id="borrowCommand" class="com.formation.spring.commands.BorrowCommand"/>
-    <bean id="lendCommand" class="com.formation.spring.commands.LendCommand"/>
-
     <bean id="exitCommand" class="com.formation.spring.commands.ExitCommand"/>
+
+    <!-- Books commands -->
+
+    <bean id="booksCommand" class="com.formation.spring.commands.books.BooksCommand"/>
+
+    <bean id="selectCommand" class="com.formation.spring.commands.books.SelectCommand"/>
+    <bean id="deleteCommand" class="com.formation.spring.commands.books.DeleteCommand"/>
+
+    <bean id="borrowCommand" class="com.formation.spring.commands.books.BorrowCommand"/>
+    <bean id="lendCommand" class="com.formation.spring.commands.books.LendCommand"/>
+
 
     <bean id="interpreter" class="com.formation.spring.commands.Interpreter">
         <constructor-arg>
             <map>
+                <!-- Main commands -->
+
                 <entry key="*" value-ref="unknownCommand"/>
+
+                <entry key="quit" value-ref="exitCommand"/>
+                <entry key="exit" value-ref="exitCommand"/>
+
+                <!-- Books commands -->
 
                 <entry key="books" value-ref="booksCommand"/>
 
@@ -31,9 +42,6 @@
 
                 <entry key="borrow" value-ref="borrowCommand"/>
                 <entry key="lend" value-ref="lendCommand"/>
-
-                <entry key="quit" value-ref="exitCommand"/>
-                <entry key="exit" value-ref="exitCommand"/>
             </map>
         </constructor-arg>
     </bean>
