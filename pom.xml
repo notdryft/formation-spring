@@ -6,7 +6,7 @@
 
     <groupId>com.formation</groupId>
     <artifactId>spring-library</artifactId>
-    <version>0.1.IOC</version>
+    <version>0.2.AOP</version>
 
     <properties>
         <junit.version>4.11</junit.version>
