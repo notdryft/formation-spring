@@ -3,6 +3,7 @@ package com.formation.spring.ihm;
 import com.formation.spring.beans.Book;
 import com.formation.spring.commands.Command;
 import com.formation.spring.commands.Interpreter;
+import com.formation.spring.commands.Receiver;
 import com.formation.spring.services.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,13 +21,11 @@ import java.io.InputStreamReader;
 @Component
 public class LibraryConsoleInterface {
 
-    private static String lineSeparator = System.getProperty("line.separator");
-
-    @Autowired
-    private LibraryService libraryService;
-
     @Autowired
     private Interpreter interpreter;
+
+    @Autowired
+    private Receiver receiver;
 
     private BufferedReader in;
 
@@ -34,23 +33,12 @@ public class LibraryConsoleInterface {
         in = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    private void showMenu() {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("Book list, make your choice !").append(lineSeparator);
-        sb.append("-----------------------------").append(lineSeparator);
-        for (Book book : libraryService.findAll()) {
-            sb.append(book.getId()).append(" : ").append(book.getName()).append(lineSeparator);
-        }
-
-        System.out.println(sb.toString());
-    }
-
     public void start() {
-        showMenu();
+        receiver.showMenu();
 
         try {
             while (true) {
+                System.out.print("> ");
                 String line = in.readLine();
 
                 Command command = interpreter.parse(line);

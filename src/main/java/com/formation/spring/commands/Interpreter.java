@@ -13,12 +13,31 @@ public class Interpreter {
 
     private Map<String, Command> commands;
 
+    private int lastParsedInt;
+
     public Interpreter(Map<String, Command> commands) {
         this.commands = commands;
     }
 
+    private boolean isInteger(String str) {
+        try {
+            lastParsedInt = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+        return true;
+    }
+
     public Command parse(String name) {
-        if (!commands.containsKey(name)) {
+        if (isInteger(name)) {
+            ChoiceCommand command = (ChoiceCommand) commands.get("int");
+            command.setChoice(lastParsedInt);
+
+            return command;
+        }
+
+        if (!commands.containsKey(name) || name.equals("int")) {
             return commands.get("*");
         }
 

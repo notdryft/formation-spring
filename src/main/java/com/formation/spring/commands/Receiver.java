@@ -1,5 +1,8 @@
 package com.formation.spring.commands;
 
+import com.formation.spring.beans.Book;
+import com.formation.spring.services.LibraryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,5 +14,49 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Receiver {
-    // Placeholder, for now
+
+    private static String lineSeparator = System.getProperty("line.separator");
+
+    @Autowired
+    private LibraryService libraryService;
+
+    public Receiver() {
+        // Do nothing.
+    }
+
+    public void showMenu() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Book store, make your choice!").append(lineSeparator);
+        sb.append("-----------------------------").append(lineSeparator);
+        sb.append("- books: list all books").append(lineSeparator);
+        sb.append("- exit: exit the application").append(lineSeparator);
+
+        System.out.print(sb.toString());
+    }
+
+    public void showBooks() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Book list, make your choice!").append(lineSeparator);
+        sb.append("----------------------------").append(lineSeparator);
+        for (Book book : libraryService.findAll()) {
+            sb.append(book.getId()).append(" : ").append(book.getName()).append(lineSeparator);
+        }
+
+        System.out.print(sb.toString());
+    }
+
+    public void showBook(int id) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("You choose: ").append(libraryService.findById(id)).append(lineSeparator);
+
+        System.out.println(sb.toString());
+    }
+
+    public void exit() {
+        System.out.println("Exiting...");
+        System.exit(0);
+    }
 }

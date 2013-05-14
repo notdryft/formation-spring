@@ -4,22 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created with IntelliJ IDEA.
- * User: notdryft
- * Date: 5/13/13
- * Time: 9:30 PM
- * To change this template use File | Settings | File Templates.
+ * User: Guillaume Corré
+ * Date: 14/05/13
+ * Time: 09:44
  */
-public class ExitCommand implements Command {
+public class BooksCommand implements Command {
 
     private Receiver receiver;
 
     @Autowired
-    public ExitCommand(Receiver receiver) {
+    public BooksCommand(Receiver receiver) {
         this.receiver = receiver;
     }
 
     @Override
     public void execute() {
-        receiver.exit();
+        receiver.showBooks();
     }
 }
