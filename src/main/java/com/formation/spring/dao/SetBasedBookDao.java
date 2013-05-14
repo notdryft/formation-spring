@@ -40,7 +40,7 @@ public class SetBasedBookDao implements BookDao {
 
     @Override
     public Set<Book> findAll() {
-        return Collections.unmodifiableSet(repository);
+        return repository;
     }
 
     @Override

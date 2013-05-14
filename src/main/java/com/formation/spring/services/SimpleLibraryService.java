@@ -5,6 +5,8 @@ import com.formation.spring.dao.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,8 +31,8 @@ public class SimpleLibraryService implements LibraryService {
     }
 
     @Override
-    public Set<Book> findAll() {
-        return dao.findAll();
+    public List<Book> findAll() {
+        return new ArrayList<Book>(dao.findAll());
     }
 
     @Override

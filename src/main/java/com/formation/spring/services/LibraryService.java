@@ -2,6 +2,7 @@ package com.formation.spring.services;
 
 import com.formation.spring.beans.Book;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,7 +15,7 @@ public interface LibraryService {
 
     Book save(Book book);
 
-    Set<Book> findAll();
+    List<Book> findAll();
 
     Book findById(int id);
 
