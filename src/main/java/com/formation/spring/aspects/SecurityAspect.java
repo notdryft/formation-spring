@@ -32,7 +32,7 @@ public class SecurityAspect {
     @Around("execution(void com.formation.spring.commands.Receiver.borrowBook(int))")
     public Object beforeBorrowing(ProceedingJoinPoint jp) throws LibrarySecurityException {
         if (!loggedIn) {
-            System.out.println("You are not logged in !");
+            System.out.println("! You are not logged in");
             System.out.print("Type in your user name: ");
 
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -41,14 +41,14 @@ public class SecurityAspect {
             try {
                 line = in.readLine();
             } catch (IOException e) {
-                System.out.println("That was not a right input...");
+                System.out.println("! That was not a right input...");
 
                 return null;
             }
 
             User user = userService.findByName(line);
             if (user == null) {
-                throw new LibrarySecurityException("Invalid user name");
+                throw new LibrarySecurityException("! Invalid user name");
             }
 
             loggedIn = true;

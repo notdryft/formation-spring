@@ -65,9 +65,9 @@ public class Receiver {
         StringBuilder sb = new StringBuilder();
 
         Book book = libraryService.findById(id);
-        sb.append("Borrowing book ").append(book.toString());
-
         book.setBorrowed(true);
+
+        sb.append("Borrowing book ").append(book.toString());
 
         System.out.println(sb.toString());
     }
@@ -76,9 +76,9 @@ public class Receiver {
         StringBuilder sb = new StringBuilder();
 
         Book book = libraryService.findById(id);
-        sb.append("Lending book ").append(book.toString());
-
         book.setBorrowed(false);
+
+        sb.append("Lending book ").append(book.toString());
 
         System.out.println(sb.toString());
     }
@@ -95,7 +95,7 @@ public class Receiver {
     }
 
     public void exit() {
-        System.out.println("Exiting...");
+        System.out.println("! Exiting...");
         System.exit(0);
     }
 }
