@@ -1,8 +1,6 @@
 package com.formation.spring.beans;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,13 +8,14 @@ import javax.persistence.Id;
  * Date: 14/05/13
  * Time: 17:13
  */
+@Entity
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(unique = true)
     private String name;
 
     public User() {

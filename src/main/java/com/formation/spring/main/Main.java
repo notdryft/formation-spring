@@ -15,7 +15,8 @@ public class Main {
         ApplicationContext app = new ClassPathXmlApplicationContext(
                 "library-config.xml",
                 "commands-config.xml",
-                "aspects-config.xml"
+                "aspects-config.xml",
+                "hibernate-config.xml"
         );
 
         Launcher launcher = app.getBean("launcher", Launcher.class);

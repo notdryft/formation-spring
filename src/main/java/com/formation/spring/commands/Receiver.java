@@ -67,6 +67,8 @@ public class Receiver {
         Book book = libraryService.findById(id);
         book.setBorrowed(true);
 
+        libraryService.update(book);
+
         sb.append("Borrowing book ").append(book.toString());
 
         System.out.println(sb.toString());
@@ -77,6 +79,8 @@ public class Receiver {
 
         Book book = libraryService.findById(id);
         book.setBorrowed(false);
+
+        libraryService.update(book);
 
         sb.append("Lending book ").append(book.toString());
 

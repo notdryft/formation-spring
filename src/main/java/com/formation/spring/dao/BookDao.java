@@ -2,7 +2,7 @@ package com.formation.spring.dao;
 
 import com.formation.spring.beans.Book;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,7 +14,7 @@ public interface BookDao {
 
     Book save(Book book);
 
-    Set<Book> findAll();
+    List<Book> findAll();
 
     Book findById(int id);
 
