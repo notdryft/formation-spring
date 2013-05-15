@@ -17,7 +17,7 @@ public class MonitoringAspect {
 
     @Around("execution(* com.formation.spring.dao.*.*(..))")
     public Object aroundAnyDaoMethod(ProceedingJoinPoint jp) {
-        double debut = System.currentTimeMillis();
+        double debut = System.nanoTime();
 
         Object object;
         try {
@@ -26,9 +26,9 @@ public class MonitoringAspect {
             return null;
         }
 
-        double fin = System.currentTimeMillis();
-        double delta = fin - debut;
-        System.out.println("! Monitor: execution(" + jp.getSignature() + ") in " + delta + "ns");
+        double fin = System.nanoTime();
+        double delta = (fin - debut) / 1000;
+        System.out.println("! Monitor: execution(" + jp.getSignature() + ") in " + delta + "ms");
 
         return object;
     }
