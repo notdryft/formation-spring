@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
  * Time: 15:14
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:test-config.xml", "classpath:hibernate-test-config.xml" })
+@ContextConfiguration(locations = { "classpath:library-test-config.xml", "classpath:hibernate-test-config.xml" })
 public class LibraryServiceTest {
 
     @Autowired
