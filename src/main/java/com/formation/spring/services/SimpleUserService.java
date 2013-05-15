@@ -1,7 +1,6 @@
 package com.formation.spring.services;
 
 import com.formation.spring.beans.User;
-import com.formation.spring.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +13,10 @@ import java.util.List;
  * Time: 9:09 PM
  */
 @Service
-public class SimpleUserService implements UserService {
+public class SimpleUserService implements com.formation.spring.services.UserService {
 
     @Autowired
-    private UserDao dao;
+    private com.formation.spring.dao.UserService dao;
 
     public SimpleUserService() {
         // Do nothing

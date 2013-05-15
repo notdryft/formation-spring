@@ -10,7 +10,7 @@ import java.util.List;
  * Date: 14/05/13
  * Time: 17:13
  */
-public interface UserDao {
+public interface UserService {
 
     User save(User user);
 

@@ -17,7 +17,7 @@ import java.util.List;
  * Time: 16:30
  */
 @Repository
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl implements UserService {
 
     @Autowired
     private HibernateTemplate hibernateTemplate;

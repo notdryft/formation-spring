@@ -1,6 +1,6 @@
-package com.formation.spring.services;
+package com.formation.spring.dao;
 
-import com.formation.spring.beans.Book;
+import com.formation.spring.beans.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,41 +18,41 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:library-test-config.xml", "classpath:hibernate-test-config.xml" })
-public class LibraryServiceTest {
+public class UserDaoTest {
 
     @Autowired
-    private LibraryService libraryService;
+    private UserService userDao;
 
     @Test
     @DirtiesContext
     public void testCreate() {
-        assertEquals(0, libraryService.count());
+        assertEquals(0, userDao.count());
 
-        Book book = new Book("Canti");
-        libraryService.save(book);
+        User user = new User("Canti");
+        userDao.save(user);
 
-        assertEquals(1, libraryService.count());
+        assertEquals(1, userDao.count());
     }
 
     @Test
     @DirtiesContext
     public void testRead() {
-        Book book = new Book("Canti");
-        book = libraryService.save(book);
+        User user = new User("Canti");
+        user = userDao.save(user);
 
-        assertEquals(book, libraryService.findByName("Canti"));
+        assertEquals(user, userDao.findByName("Canti"));
     }
 
     @Test
     @DirtiesContext
     public void testUpdate() {
-        Book book = new Book("Cantiz");
-        Book canti = libraryService.save(book);
+        User user = new User("Cantiz");
+        User canti = userDao.save(user);
 
         assertEquals(canti.getName(), "Cantiz");
 
         canti.setName("Canti");
-        Book canti2 = libraryService.update(canti);
+        User canti2 = userDao.update(canti);
 
         assertEquals(canti.getId(), canti2.getId());
         assertEquals(canti2.getName(), "Canti");
@@ -61,15 +61,15 @@ public class LibraryServiceTest {
     @Test
     @DirtiesContext
     public void testDelete() {
-        assertEquals(0, libraryService.count());
+        assertEquals(0, userDao.count());
 
-        Book book = new Book("Giacomo");
-        book = libraryService.save(book);
+        User user = new User("Giacomo");
+        user = userDao.save(user);
 
-        assertEquals(1, libraryService.count());
+        assertEquals(1, userDao.count());
 
-        libraryService.delete(book);
+        userDao.delete(user);
 
-        assertEquals(0, libraryService.count());
+        assertEquals(0, userDao.count());
     }
 }
