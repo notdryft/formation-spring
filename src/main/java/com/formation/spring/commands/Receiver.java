@@ -3,6 +3,7 @@ package com.formation.spring.commands;
 import com.formation.spring.beans.Book;
 import com.formation.spring.exceptions.LibrarySecurityException;
 import com.formation.spring.services.LibraryService;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,9 @@ import org.springframework.stereotype.Component;
 public class Receiver {
 
     private static String lineSeparator = System.getProperty("line.separator");
+
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Autowired
     private LibraryService libraryService;
@@ -100,6 +104,8 @@ public class Receiver {
 
     public void exit() {
         System.out.println("! Exiting...");
+        sessionFactory.close();
+
         System.exit(0);
     }
 }
