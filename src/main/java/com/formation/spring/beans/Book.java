@@ -1,17 +1,27 @@
 package com.formation.spring.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Guillaume Corré
  * Date: 13/05/13
  * Time: 14:43
  */
+@Entity
 public class Book implements Comparable<Book> {
 
+    @Id
+    @GeneratedValue
     private int id;
 
+    @Column
     private String name;
 
+    @Column
     private boolean borrowed;
 
     public Book() {

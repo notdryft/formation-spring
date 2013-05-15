@@ -1,5 +1,9 @@
 package com.formation.spring.beans;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Guillaume Corré
@@ -8,8 +12,11 @@ package com.formation.spring.beans;
  */
 public class User {
 
+    @Id
+    @GeneratedValue
     private int id;
 
+    @Column
     private String name;
 
     public User() {
