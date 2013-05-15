@@ -1,11 +1,9 @@
 package com.formation.spring.ihm;
 
-import com.formation.spring.beans.Book;
 import com.formation.spring.commands.Command;
 import com.formation.spring.commands.Interpreter;
 import com.formation.spring.commands.Receiver;
 import com.formation.spring.exceptions.ParseException;
-import com.formation.spring.services.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

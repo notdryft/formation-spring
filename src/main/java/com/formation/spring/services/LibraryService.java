@@ -3,7 +3,6 @@ package com.formation.spring.services;
 import com.formation.spring.beans.Book;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.

@@ -19,8 +19,8 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
-                <!--<prop key="hibernate.show_sql">true</prop>-->
-                <!--<prop key="hibernate.format_sql">true</prop>-->
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
             </props>
         </property>
         <property name="annotatedClasses">
@@ -35,8 +35,5 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <context:annotation-config/>
-    <context:component-scan base-package="com.formation.spring"/>
-
-    <context:property-placeholder location="database.properties"/>
+    <context:property-placeholder location="database-test.properties"/>
 </beans>

@@ -1,6 +1,5 @@
 package com.formation.spring.services;
 
-import com.formation.spring.beans.Book;
 import com.formation.spring.beans.User;
 
 import java.util.List;

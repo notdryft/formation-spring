@@ -6,5 +6,4 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="com.formation.spring.dao"/>
-    <context:component-scan base-package="com.formation.spring.services"/>
 </beans>

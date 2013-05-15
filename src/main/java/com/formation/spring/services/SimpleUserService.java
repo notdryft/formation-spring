@@ -1,12 +1,10 @@
 package com.formation.spring.services;
 
-import com.formation.spring.beans.Book;
 import com.formation.spring.beans.User;
 import com.formation.spring.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
