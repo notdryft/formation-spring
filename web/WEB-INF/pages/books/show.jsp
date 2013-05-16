@@ -16,7 +16,7 @@
             <a class="brand" href="${pageContext.request.contextPath}/">Library</a>
             <ul class="nav">
                 <li class="active"><a href="#">Books</a></li>
-                <li><a href="#">Users</a></li>
+                <li><a href="users">Users</a></li>
             </ul>
         </div>
     </div>
