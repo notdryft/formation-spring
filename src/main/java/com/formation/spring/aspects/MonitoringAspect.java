@@ -23,11 +23,13 @@ public class MonitoringAspect {
         try {
             object = jp.proceed();
         } catch (Throwable throwable) {
+            throwable.printStackTrace();
+
             return null;
         }
 
         double fin = System.nanoTime();
-        double delta = (fin - debut) / 1000;
+        double delta = (fin - debut) / 1e6;
         System.out.println("! Monitor: execution(" + jp.getSignature() + ") in " + delta + "ms");
 
         return object;

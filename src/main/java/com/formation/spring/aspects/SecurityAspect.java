@@ -57,6 +57,8 @@ public class SecurityAspect {
         try {
             object = jp.proceed();
         } catch (Throwable throwable) {
+            throwable.printStackTrace();
+
             return null;
         }
 
