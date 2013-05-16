@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MonitoringAspect {
 
-    @Around("execution(* com.formation.spring.dao.*.*(..))")
+    @Around("execution(* com.formation.spring.business.dao.*.*(..))")
     public Object aroundAnyDaoMethod(ProceedingJoinPoint jp) throws Throwable {
         double debut = System.nanoTime();
 

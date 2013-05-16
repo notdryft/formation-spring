@@ -1,8 +1,8 @@
 package com.formation.spring.aspects;
 
-import com.formation.spring.beans.User;
-import com.formation.spring.exceptions.LibrarySecurityException;
-import com.formation.spring.services.UserService;
+import com.formation.spring.business.beans.User;
+import com.formation.spring.business.exceptions.LibrarySecurityException;
+import com.formation.spring.business.services.UserService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -28,7 +28,7 @@ public class SecurityAspect {
 
     private boolean loggedIn = false;
 
-    @Around("execution(void com.formation.spring.commands.Receiver.borrowBook(int))")
+    @Around("execution(void com.formation.spring.console.commands.Receiver.borrowBook(int))")
     public Object beforeBorrowing(ProceedingJoinPoint jp) throws Throwable {
         if (!loggedIn) {
             System.out.println("! You are not logged in");

@@ -28,8 +28,8 @@
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>com.formation.spring.beans.Book</value>
-                <value>com.formation.spring.beans.User</value>
+                <value>com.formation.spring.business.beans.Book</value>
+                <value>com.formation.spring.business.beans.User</value>
             </list>
         </property>
     </bean>

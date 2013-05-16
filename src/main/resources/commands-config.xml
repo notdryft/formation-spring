@@ -6,24 +6,24 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.formation.spring.commands"/>
+    <context:component-scan base-package="com.formation.spring.console.commands"/>
 
     <!-- Main commands -->
 
-    <bean id="unknownCommand" class="com.formation.spring.commands.UnknownCommand"/>
-    <bean id="exitCommand" class="com.formation.spring.commands.ExitCommand"/>
+    <bean id="unknownCommand" class="com.formation.spring.console.commands.UnknownCommand"/>
+    <bean id="exitCommand" class="com.formation.spring.console.commands.ExitCommand"/>
 
     <!-- Books commands -->
 
-    <bean id="booksCommand" class="com.formation.spring.commands.books.BooksCommand"/>
+    <bean id="booksCommand" class="com.formation.spring.console.commands.books.BooksCommand"/>
 
-    <bean id="selectCommand" class="com.formation.spring.commands.books.SelectCommand"/>
-    <bean id="deleteCommand" class="com.formation.spring.commands.books.DeleteCommand"/>
+    <bean id="selectCommand" class="com.formation.spring.console.commands.books.SelectCommand"/>
+    <bean id="deleteCommand" class="com.formation.spring.console.commands.books.DeleteCommand"/>
 
-    <bean id="borrowCommand" class="com.formation.spring.commands.books.BorrowCommand"/>
-    <bean id="lendCommand" class="com.formation.spring.commands.books.LendCommand"/>
+    <bean id="borrowCommand" class="com.formation.spring.console.commands.books.BorrowCommand"/>
+    <bean id="lendCommand" class="com.formation.spring.console.commands.books.LendCommand"/>
 
-    <bean id="interpreter" class="com.formation.spring.commands.Interpreter">
+    <bean id="interpreter" class="com.formation.spring.console.commands.Interpreter">
         <constructor-arg>
             <map>
                 <!-- Main commands -->

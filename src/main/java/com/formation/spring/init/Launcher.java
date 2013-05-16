@@ -1,9 +1,9 @@
 package com.formation.spring.init;
 
-import com.formation.spring.beans.Book;
-import com.formation.spring.beans.User;
-import com.formation.spring.services.LibraryService;
-import com.formation.spring.services.UserService;
+import com.formation.spring.business.beans.Book;
+import com.formation.spring.business.beans.User;
+import com.formation.spring.business.services.LibraryService;
+import com.formation.spring.business.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
