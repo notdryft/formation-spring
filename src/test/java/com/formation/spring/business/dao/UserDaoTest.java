@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 public class UserDaoTest {
 
     @Autowired
-    private UserService userDao;
+    private UserDao userDao;
 
     @Test
     @DirtiesContext
