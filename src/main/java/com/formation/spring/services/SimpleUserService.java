@@ -14,7 +14,6 @@ import java.util.List;
  * Time: 9:09 PM
  */
 @Service
-@Transactional
 public class SimpleUserService implements com.formation.spring.services.UserService {
 
     @Autowired
@@ -25,6 +24,7 @@ public class SimpleUserService implements com.formation.spring.services.UserServ
     }
 
     @Override
+    @Transactional
     public User save(User user) {
         return dao.save(user);
     }
@@ -48,11 +48,13 @@ public class SimpleUserService implements com.formation.spring.services.UserServ
     }
 
     @Override
+    @Transactional
     public User update(User user) {
         return dao.update(user);
     }
 
     @Override
+    @Transactional
     public boolean delete(User user) {
         return dao.delete(user);
     }
