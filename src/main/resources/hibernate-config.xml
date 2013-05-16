@@ -7,6 +7,8 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <context:property-placeholder location="classpath:database.properties"/>
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.SingleConnectionDataSource">
         <property name="driverClassName" value="${h2.driverClassName}"/>
         <property name="url" value="${h2.url}"/>
@@ -41,6 +43,4 @@
     </bean>
 
     <tx:annotation-driven transaction-manager="txManager"/>
-
-    <context:property-placeholder location="database.properties"/>
 </beans>

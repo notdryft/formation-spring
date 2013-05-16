@@ -7,9 +7,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-    <!--<import resource="classpath:library-config.xml"/>-->
-    <!--<import resource="classpath:aspects-config.xml"/>-->
-    <!--<import resource="classpath:hibernate-config.xml"/>-->
+    <import resource="classpath:hibernate-config.xml"/>
 
     <mvc:annotation-driven/>
     <mvc:resources mapping="/bootstrap/**" location="/bootstrap/"/>
@@ -20,5 +18,9 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <context:annotation-config/>
     <context:component-scan base-package="com.formation.spring.controllers"/>
+    <context:component-scan base-package="com.formation.spring.dao"/>
+    <context:component-scan base-package="com.formation.spring.init"/>
+    <context:component-scan base-package="com.formation.spring.services"/>
 </beans>

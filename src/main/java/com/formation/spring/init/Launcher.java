@@ -1,12 +1,13 @@
-package com.formation.spring.main;
+package com.formation.spring.init;
 
 import com.formation.spring.beans.Book;
 import com.formation.spring.beans.User;
-import com.formation.spring.ihm.LibraryConsoleInterface;
 import com.formation.spring.services.LibraryService;
 import com.formation.spring.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,9 +23,6 @@ public class Launcher {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private LibraryConsoleInterface libraryConsoleInterface;
 
     public Launcher() {
         // Do nothing.
@@ -44,12 +42,9 @@ public class Launcher {
         userService.save(new User("Evgeny"));
     }
 
+    @PostConstruct
     public void init() {
         initBooks();
         initUsers();
-    }
-
-    public void start() {
-        libraryConsoleInterface.start();
     }
 }

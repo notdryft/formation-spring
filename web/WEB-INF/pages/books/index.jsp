@@ -15,7 +15,7 @@
         <div class="container">
             <a class="brand" href="#">Library</a>
             <ul class="nav">
-                <li><a href="books">Books</a></li>
+                <li class="active"><a href="#">Books</a></li>
                 <li><a href="#">Users</a></li>
             </ul>
         </div>
@@ -24,7 +24,7 @@
 <div class="container">
     <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Hey !</strong> ${message}
+        <strong>Hey !</strong> ${books}
     </div>
 </div>
 </body>

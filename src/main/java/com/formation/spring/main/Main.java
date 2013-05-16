@@ -1,5 +1,6 @@
 package com.formation.spring.main;
 
+import com.formation.spring.ihm.LibraryConsoleInterface;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,8 +20,6 @@ public class Main {
                 "hibernate-config.xml"
         );
 
-        Launcher launcher = app.getBean("launcher", Launcher.class);
-        launcher.init();
-        launcher.start();
+        app.getBean("libraryConsoleInterface", LibraryConsoleInterface.class).start();
     }
 }
