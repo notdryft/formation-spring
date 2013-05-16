@@ -6,7 +6,7 @@
 
     <groupId>com.formation</groupId>
     <artifactId>spring-library</artifactId>
-    <version>0.4.TX</version>
+    <version>0.5.MVC</version>
 
     <properties>
         <junit.version>4.11</junit.version>
@@ -86,6 +86,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- MVC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
     </dependencies>
