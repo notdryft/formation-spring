@@ -6,6 +6,7 @@ import com.formation.spring.services.LibraryService;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created with IntelliJ IDEA.
@@ -39,6 +40,7 @@ public class Receiver {
         System.out.print(sb.toString());
     }
 
+    @Transactional(readOnly = true)
     public void showBooks() {
         StringBuilder sb = new StringBuilder();
 
@@ -57,6 +59,7 @@ public class Receiver {
         System.out.print(sb.toString());
     }
 
+    @Transactional(readOnly = true)
     public void showBook(int id) {
         StringBuilder sb = new StringBuilder();
 
@@ -65,6 +68,7 @@ public class Receiver {
         System.out.println(sb.toString());
     }
 
+    @Transactional(rollbackFor = LibrarySecurityException.class)
     public void borrowBook(int id) throws LibrarySecurityException {
         StringBuilder sb = new StringBuilder();
 
@@ -78,6 +82,7 @@ public class Receiver {
         System.out.println(sb.toString());
     }
 
+    @Transactional
     public void lendBook(int id) {
         StringBuilder sb = new StringBuilder();
 
@@ -91,6 +96,7 @@ public class Receiver {
         System.out.println(sb.toString());
     }
 
+    @Transactional
     public void deleteBook(int id) {
         StringBuilder sb = new StringBuilder();
 

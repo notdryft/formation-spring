@@ -16,17 +16,10 @@ import org.springframework.stereotype.Component;
 public class MonitoringAspect {
 
     @Around("execution(* com.formation.spring.dao.*.*(..))")
-    public Object aroundAnyDaoMethod(ProceedingJoinPoint jp) {
+    public Object aroundAnyDaoMethod(ProceedingJoinPoint jp) throws Throwable {
         double debut = System.nanoTime();
 
-        Object object;
-        try {
-            object = jp.proceed();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-
-            return null;
-        }
+        Object object = jp.proceed();
 
         double fin = System.nanoTime();
         double delta = (fin - debut) / 1e6;

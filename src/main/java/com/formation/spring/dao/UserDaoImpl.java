@@ -45,7 +45,7 @@ public class UserDaoImpl implements UserService {
         DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
         criteria.add(Restrictions.eq("name", name));
 
-        return (User) DataAccessUtils.requiredSingleResult(hibernateTemplate.findByCriteria(criteria));
+        return (User) DataAccessUtils.singleResult(hibernateTemplate.findByCriteria(criteria));
     }
 
     @Override

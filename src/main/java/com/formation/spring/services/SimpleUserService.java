@@ -3,6 +3,7 @@ package com.formation.spring.services;
 import com.formation.spring.beans.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * Time: 9:09 PM
  */
 @Service
+@Transactional
 public class SimpleUserService implements com.formation.spring.services.UserService {
 
     @Autowired
@@ -28,16 +30,19 @@ public class SimpleUserService implements com.formation.spring.services.UserServ
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<User> findAll() {
         return dao.findAll();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User findById(int id) {
         return dao.findById(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User findByName(String name) {
         return dao.findByName(name);
     }
@@ -53,6 +58,7 @@ public class SimpleUserService implements com.formation.spring.services.UserServ
     }
 
     @Override
+    @Transactional(readOnly = true)
     public int count() {
         return dao.count();
     }

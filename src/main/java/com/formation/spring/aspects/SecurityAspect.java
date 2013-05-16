@@ -29,7 +29,7 @@ public class SecurityAspect {
     private boolean loggedIn = false;
 
     @Around("execution(void com.formation.spring.commands.Receiver.borrowBook(int))")
-    public Object beforeBorrowing(ProceedingJoinPoint jp) throws LibrarySecurityException {
+    public Object beforeBorrowing(ProceedingJoinPoint jp) throws Throwable {
         if (!loggedIn) {
             System.out.println("! You are not logged in");
             System.out.print("Type in your user name: ");
@@ -53,15 +53,6 @@ public class SecurityAspect {
             loggedIn = true;
         }
 
-        Object object;
-        try {
-            object = jp.proceed();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-
-            return null;
-        }
-
-        return object;
+        return jp.proceed();
     }
 }

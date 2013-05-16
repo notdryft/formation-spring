@@ -2,8 +2,10 @@ package com.formation.spring.services;
 
 import com.formation.spring.beans.Book;
 import com.formation.spring.dao.BookDao;
+import com.formation.spring.exceptions.LibrarySecurityException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
