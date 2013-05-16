@@ -1,6 +1,6 @@
 package com.formation.spring.controllers;
 
-import com.formation.spring.business.services.LibraryService;
+import com.formation.spring.business.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,26 +10,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created with IntelliJ IDEA.
  * User: Guillaume Corré
  * Date: 16/05/13
- * Time: 15:52
+ * Time: 17:17
  */
 @Controller
-@RequestMapping("/books")
-public class BooksController {
+@RequestMapping("/users")
+public class UsersController {
 
     @Autowired
-    private LibraryService libraryService;
+    private UserService userService;
 
     @RequestMapping()
     public String index(ModelMap model) {
-        model.addAttribute("books", libraryService.findAll());
+        model.addAttribute("users", userService.findAll());
 
-        return "books/list";
+        return "users/list";
     }
 
-    @RequestMapping("book")
+    @RequestMapping("user")
     public String show(ModelMap model) {
-        model.addAttribute("user", libraryService.findByName("Canti"));
+        model.addAttribute("user", userService.findByName("Guillaume"));
 
-        return "books/show";
+        return "users/show";
     }
 }

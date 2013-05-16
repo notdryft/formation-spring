@@ -35,5 +35,5 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <context:property-placeholder location="database-test.properties"/>
+    <context:property-placeholder location="classpath:database-test.properties"/>
 </beans>
