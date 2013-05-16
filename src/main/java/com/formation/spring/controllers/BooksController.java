@@ -26,9 +26,9 @@ public class BooksController {
         return "books/list";
     }
 
-    @RequestMapping("/book")
+    @RequestMapping("/show/book")
     public String show(ModelMap model) {
-        model.addAttribute("user", libraryService.findByName("Canti"));
+        model.addAttribute("book", libraryService.findByName("Canti"));
 
         return "books/show";
     }
