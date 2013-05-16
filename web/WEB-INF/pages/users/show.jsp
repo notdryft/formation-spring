@@ -13,9 +13,9 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="#">Library</a>
+            <a class="brand" href="${pageContext.request.contextPath}/">Library</a>
             <ul class="nav">
-                <li><a href="#">Books</a></li>
+                <li><a href="books">Books</a></li>
                 <li class="active"><a href="#">Users</a></li>
             </ul>
         </div>

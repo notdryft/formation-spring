@@ -16,7 +16,7 @@
             <a class="brand" href="#">Library</a>
             <ul class="nav">
                 <li><a href="books">Books</a></li>
-                <li><a href="#">Users</a></li>
+                <li><a href="users">Users</a></li>
             </ul>
         </div>
     </div>
