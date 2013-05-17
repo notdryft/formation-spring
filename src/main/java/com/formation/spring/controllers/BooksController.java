@@ -42,8 +42,8 @@ public class BooksController {
         return "/books/show";
     }
 
-    @RequestMapping(value = "/borrow/{id}", method = RequestMethod.POST)
-    public String borrow(@PathVariable int id, @RequestParam String name, ModelMap model) {
+    @RequestMapping(value = "/borrow", method = RequestMethod.POST)
+    public String borrow(@RequestParam int id, @RequestParam String name, ModelMap model) {
         Book book = libraryService.findById(id);
 
         User user = userService.findByName(name);
@@ -59,8 +59,8 @@ public class BooksController {
         return "redirect:/books/show/" + id;
     }
 
-    @RequestMapping(value = "/lend/{id}", method = RequestMethod.POST)
-    public String lend(@PathVariable int id, ModelMap model) {
+    @RequestMapping(value = "/lend", method = RequestMethod.POST)
+    public String lend(@RequestParam int id, ModelMap model) {
         Book book = libraryService.findById(id);
         book.setBorrowed(false);
         book.setUser(null);

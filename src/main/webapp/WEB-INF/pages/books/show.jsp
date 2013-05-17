@@ -35,15 +35,16 @@
         </h1>
     </div>
 
-
     <c:choose>
         <c:when test="${book.borrowed}">
-            <form:form action="${pageContext.request.contextPath}/books/lend/${book.id}">
+            <form:form action="${pageContext.request.contextPath}/books/lend" commandName="book">
+                <form:hidden path="id"/>
                 <button type="submit" class="btn btn-info">Lend book</button>
             </form:form>
         </c:when>
         <c:otherwise>
-            <form:form action="${pageContext.request.contextPath}/books/borrow/${book.id}">
+            <form:form action="${pageContext.request.contextPath}/books/borrow" commandName="book">
+                <form:hidden path="id"/>
                 <div class="input-append">
                     <input name="name" type="text" class="span2">
                     <button type="submit" class="btn">Borrow book</button>
