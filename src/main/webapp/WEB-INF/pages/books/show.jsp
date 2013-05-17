@@ -24,13 +24,30 @@
 </div>
 <div class="container">
 
-    <h2>&laquo; ${book.name} &raquo;</h2>
+    <div class="page-header">
+        <h1>Book&nbsp;
+            <small>Dashboard</small>
+        </h1>
+    </div>
 
-    <ul>
-        <li><strong>Id: </strong>${book.id}</li>
-        <li><strong>Name: </strong>&laquo; ${book.name} &raquo;</li>
-        <li><strong>Borrowed?: </strong><em>${book.borrowed}</em></li>
-    </ul>
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>${book.id}</dd>
+        <dt>Name:</dt>
+        <dd>&laquo; ${book.name} &raquo;</dd>
+        <dt>Borrowed?</dt>
+        <dd>
+            <c:choose>
+                <c:when test="${book.borrowed}">
+                    <span class="badge badge-important">&times;</span>&nbsp;Emprunté par <a
+                        href="${pageContext.request.contextPath}/users/show/${book.user.id}">${book.user.name}</a>
+                </c:when>
+                <c:otherwise>
+                    <span class="label label-success">Disponible</span>
+                </c:otherwise>
+            </c:choose>
+        </dd>
+    </dl>
 </div>
 </body>
 </html>

@@ -24,12 +24,32 @@
 </div>
 <div class="container">
 
-    <h2>&laquo; ${user.name} &raquo;</h2>
+    <div class="page-header">
+        <h1>User&nbsp;
+            <small>Dashboard</small>
+        </h1>
+    </div>
 
-    <ul>
-        <li><strong>Id: </strong>${user.id}</li>
-        <li><strong>Name: </strong>&laquo; ${user.name} &raquo;</li>
-    </ul>
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>${user.id}</dd>
+        <dt>Name</dt>
+        <dd>&laquo; ${user.name} &raquo;</dd>
+    </dl>
+
+
+    <div class="well">
+
+        <h2>Emprunts</h2>
+
+        <c:if test="${!user.books.isEmpty()}">
+            <ol>
+                <c:forEach var="book" items="${user.books}">
+                    <li><a href="${pageContext.request.contextPath}/books/show/${book.id}">${book.name}</a></li>
+                </c:forEach>
+            </ol>
+        </c:if>
+    </div>
 </div>
 </body>
 </html>

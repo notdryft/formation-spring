@@ -24,12 +24,23 @@
 </div>
 <div class="container">
 
-    <h1>Books dashboard</h1>
+    <div class="page-header">
+        <h1>Books&nbsp;
+            <small>Dashboard</small>
+        </h1>
+    </div>
 
     <c:if test="${!books.isEmpty()}">
         <ul>
             <c:forEach var="book" items="${books}">
-                <li><a href="${pageContext.request.contextPath}/books/show/${book.id}">${book.name}</a></li>
+                <li>
+                    <a href="${pageContext.request.contextPath}/books/show/${book.id}">${book.name}</a>
+                    &nbsp;
+                    <c:choose>
+                        <c:when test="${book.borrowed}"><span class="badge badge-important">&times;</span></c:when>
+                        <c:otherwise><span class="badge badge-success">&#10004;</span></c:otherwise>
+                    </c:choose>
+                </li>
             </c:forEach>
         </ul>
     </c:if>

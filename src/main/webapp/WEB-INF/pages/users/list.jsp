@@ -24,7 +24,11 @@
 </div>
 <div class="container">
 
-    <h1>Users dashboard</h1>
+    <div class="page-header">
+        <h1>Users&nbsp;
+            <small>Dashboard</small>
+        </h1>
+    </div>
 
     <c:if test="${!users.isEmpty()}">
         <ul>

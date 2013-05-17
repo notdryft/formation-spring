@@ -23,7 +23,9 @@
 </div>
 <div class="container">
 
-    <h1>Dashboard</h1>
+    <div class="page-header">
+        <h1>Dashboard</h1>
+    </div>
 
     <p>Things you can do:</p>
 

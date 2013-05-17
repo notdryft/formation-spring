@@ -1,6 +1,8 @@
 package com.formation.spring.business.beans;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,6 +19,9 @@ public class User {
 
     @Column(unique = true)
     private String name;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    private List<Book> books = new ArrayList<Book>();
 
     public User() {
         // Do nothing.
@@ -40,6 +45,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     @Override

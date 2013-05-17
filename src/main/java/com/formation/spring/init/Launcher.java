@@ -28,23 +28,32 @@ public class Launcher {
         // Do nothing.
     }
 
-    private void initBooks() {
-        libraryService.save(new Book("Canti"));
-        libraryService.save(new Book("Schimatrice+"));
-        libraryService.save(new Book("Seconde fondation"));
-        libraryService.save(new Book("Heart of Darkness"));
-        libraryService.save(new Book("Lettres à un jeune poète"));
-    }
-
-    private void initUsers() {
-        userService.save(new User("Guillaume"));
-        userService.save(new User("Glenn"));
-        userService.save(new User("Evgeny"));
-    }
-
     @PostConstruct
     public void init() {
-        initBooks();
-        initUsers();
+        Book canti = new Book("Canti");
+        Book schimatrice = new Book("Schimatrice+");
+        Book fondation = new Book("Seconde fondation");
+        Book heart = new Book("Heart of Darkness");
+        Book lettres = new Book("Lettres à un jeune poète");
+
+        User guillaume = userService.save(new User("Guillaume"));
+        canti.setUser(guillaume);
+        canti.setBorrowed(true);
+        heart.setUser(guillaume);
+        heart.setBorrowed(true);
+
+        User glenn = userService.save(new User("Glenn"));
+        lettres.setUser(glenn);
+        lettres.setBorrowed(true);
+
+        User evgeny = userService.save(new User("Evgeny"));
+        fondation.setUser(evgeny);
+        fondation.setBorrowed(true);
+
+        libraryService.save(canti);
+        libraryService.save(schimatrice);
+        libraryService.save(fondation);
+        libraryService.save(heart);
+        libraryService.save(lettres);
     }
 }

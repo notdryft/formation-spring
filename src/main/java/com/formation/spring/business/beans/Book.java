@@ -21,6 +21,9 @@ public class Book implements Comparable<Book> {
     @Column
     private boolean borrowed;
 
+    @ManyToOne
+    private User user;
+
     public Book() {
         // Do nothing.
     }
@@ -51,6 +54,14 @@ public class Book implements Comparable<Book> {
 
     public void setBorrowed(boolean borrowed) {
         this.borrowed = borrowed;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
