@@ -35,6 +35,23 @@
         </h1>
     </div>
 
+
+    <c:choose>
+        <c:when test="${book.borrowed}">
+            <form:form action="${pageContext.request.contextPath}/books/lend/${book.id}">
+                <button type="submit" class="btn btn-info">Lend book</button>
+            </form:form>
+        </c:when>
+        <c:otherwise>
+            <form:form action="${pageContext.request.contextPath}/books/borrow/${book.id}">
+                <div class="input-append">
+                    <input name="name" type="text" class="span2">
+                    <button type="submit" class="btn">Borrow book</button>
+                </div>
+            </form:form>
+        </c:otherwise>
+    </c:choose>
+
     <blockquote>
         <p>&laquo; ${book.name} &raquo;</p>
         <small>
@@ -49,12 +66,6 @@
             </c:choose>
         </small>
     </blockquote>
-
-    <c:if test="${book.borrowed}">
-        <form:form action="${pageContext.request.contextPath}/books/lend/${book.id}" commandName="lend">
-            <button type="submit" class="btn btn-info">Lend book</button>
-        </form:form>
-    </c:if>
 </div>
 </body>
 </html>
