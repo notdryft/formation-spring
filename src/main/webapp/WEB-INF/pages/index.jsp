@@ -15,8 +15,8 @@
         <div class="container">
             <a class="brand" href="#">Library</a>
             <ul class="nav">
-                <li><a href="books">Books</a></li>
-                <li><a href="users">Users</a></li>
+                <li><a href="${pageContext.request.contextPath}/books">Books</a></li>
+                <li><a href="${pageContext.request.contextPath}/users">Users</a></li>
             </ul>
         </div>
     </div>

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,17 +16,20 @@
         <div class="container">
             <a class="brand" href="${pageContext.request.contextPath}/">Library</a>
             <ul class="nav">
-                <li><a href="books">Books</a></li>
-                <li class="active"><a href="#">Users</a></li>
+                <li><a href="${pageContext.request.contextPath}/books">Books</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/users">Users</a></li>
             </ul>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Hey !</strong> ${user}
-    </div>
+
+    <h2>&laquo; ${user.name} &raquo;</h2>
+
+    <ul>
+        <li><strong>Id: </strong>${user.id}</li>
+        <li><strong>Name: </strong>&laquo; ${user.name} &raquo;</li>
+    </ul>
 </div>
 </body>
 </html>

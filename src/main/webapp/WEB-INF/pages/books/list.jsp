@@ -17,7 +17,7 @@
             <a class="brand" href="${pageContext.request.contextPath}/">Library</a>
             <ul class="nav">
                 <li class="active"><a href="#">Books</a></li>
-                <li><a href="users">Users</a></li>
+                <li><a href="${pageContext.request.contextPath}/users">Users</a></li>
             </ul>
         </div>
     </div>
@@ -29,7 +29,7 @@
     <c:if test="${!books.isEmpty()}">
         <ul>
             <c:forEach var="book" items="${books}">
-                <li><a href="users/show/${book.id}">${book.name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/books/show/${book.id}">${book.name}</a></li>
             </c:forEach>
         </ul>
     </c:if>
