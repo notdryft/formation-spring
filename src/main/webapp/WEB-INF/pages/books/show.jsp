@@ -34,24 +34,20 @@
         </h1>
     </div>
 
-    <dl class="dl-horizontal">
-        <dt>Id</dt>
-        <dd>${book.id}</dd>
-        <dt>Name:</dt>
-        <dd>&laquo; ${book.name} &raquo;</dd>
-        <dt>Borrowed?</dt>
-        <dd>
+    <blockquote>
+        <p>&laquo; ${book.name} &raquo;</p>
+        <small>
             <c:choose>
                 <c:when test="${book.borrowed}">
-                    <span class="badge badge-important">&times;</span>&nbsp;Emprunté par <a
+                    <span class="label label-important">Emprunté </span> par <a
                         href="${pageContext.request.contextPath}/users/show/${book.user.id}">${book.user.name}</a>
                 </c:when>
                 <c:otherwise>
                     <span class="label label-success">Disponible</span>
                 </c:otherwise>
             </c:choose>
-        </dd>
-    </dl>
+        </small>
+    </blockquote>
 </div>
 </body>
 </html>

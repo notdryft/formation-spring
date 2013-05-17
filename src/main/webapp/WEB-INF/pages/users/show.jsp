@@ -42,7 +42,7 @@
     </dl>
 
 
-    <div class="well">
+    <div class="well well-large">
 
         <h2>Emprunts</h2>
 
