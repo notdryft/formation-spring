@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,30 +34,41 @@
         </h1>
     </div>
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Borrowed?</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="book" items="${books}">
-            <tr class="<c:if test="${!book.borrowed}">success</c:if>">
-                <td>${book.id}</td>
-                <td><a href="${pageContext.request.contextPath}/books/show/${book.id}">${book.name}</a></td>
-                <td>
-                    <c:choose>
-                        <c:when test="${book.borrowed}"><span
-                                class="label label-important">Emprunté &times;</span></c:when>
-                        <c:otherwise><span class="label label-success">Disponible &#10004;</span></c:otherwise>
-                    </c:choose>
+    <form:form action="${pageContext.request.contextPath}/books/batchLend" commandName="book">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Borrowed?</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="book" items="${books}">
+                <tr class="<c:if test="${!book.borrowed}">success</c:if>">
+                    <td>${book.id}</td>
+                    <td><a href="${pageContext.request.contextPath}/books/show/${book.id}">${book.name}</a></td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${book.borrowed}"><span
+                                    class="label label-important">Emprunté &times;</span></c:when>
+                            <c:otherwise><span class="label label-success">Disponible &#10004;</span></c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td><form:checkboxes path="borrowed" items="${book.id}"/></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+                    <button type="submit" class="btn btn-info pull-right">Lend all</button>
                 </td>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            </tfoot>
+        </table>
+    </form:form>
 </div>
 </body>
 </html>
