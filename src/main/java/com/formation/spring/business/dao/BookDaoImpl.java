@@ -1,8 +1,6 @@
 package com.formation.spring.business.dao;
 
 import com.formation.spring.business.beans.Book;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -42,10 +40,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public Book findByName(String name) {
-        DetachedCriteria criteria = DetachedCriteria.forClass(Book.class);
-        criteria.add(Restrictions.eq("name", name));
-
-        return (Book) DataAccessUtils.requiredSingleResult(hibernateTemplate.findByCriteria(criteria));
+        return (Book) DataAccessUtils.singleResult(hibernateTemplate.find("from Book where name = ?", name));
     }
 
     @Override

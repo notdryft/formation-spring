@@ -1,8 +1,6 @@
 package com.formation.spring.business.dao;
 
 import com.formation.spring.business.beans.User;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -42,10 +40,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User findByName(String name) {
-        DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
-        criteria.add(Restrictions.eq("name", name));
-
-        return (User) DataAccessUtils.singleResult(hibernateTemplate.findByCriteria(criteria));
+        return (User) DataAccessUtils.singleResult(hibernateTemplate.find("from User where name = ?", name));
     }
 
     @Override
