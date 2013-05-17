@@ -22,10 +22,15 @@
     </div>
 </div>
 <div class="container">
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Hey !</strong> ${message}
-    </div>
+
+    <h1>Dashboard</h1>
+
+    <p>Things you can do:</p>
+
+    <ol>
+        <li>Consult the list of <a href="books">books</a> you can borrow</li>
+        <li>Get to the list of <a href="users">users</a> that can actually borrow a book</li>
+    </ol>
 </div>
 </body>
 </html>
