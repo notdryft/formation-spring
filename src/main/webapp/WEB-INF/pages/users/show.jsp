@@ -46,13 +46,18 @@
 
         <h2>Emprunts</h2>
 
-        <c:if test="${!user.books.isEmpty()}">
-            <ol>
-                <c:forEach var="book" items="${user.books}">
-                    <li><a href="${pageContext.request.contextPath}/books/show/${book.id}">${book.name}</a></li>
-                </c:forEach>
-            </ol>
-        </c:if>
+        <c:choose>
+            <c:when test="${user.books.isEmpty()}">
+                <p class="text-info">Aucun emprunt.</p>
+            </c:when>
+            <c:otherwise>
+                <ol>
+                    <c:forEach var="book" items="${user.books}">
+                        <li><a href="${pageContext.request.contextPath}/books/show/${book.id}">${book.name}</a></li>
+                    </c:forEach>
+                </ol>
+            </c:otherwise>
+        </c:choose>
     </div>
 </div>
 </body>

@@ -25,13 +25,13 @@ public class UsersController {
     public String index(ModelMap model) {
         model.addAttribute("users", userService.findAll());
 
-        return "users/list";
+        return "/users/list";
     }
 
     @RequestMapping(value = "/show/{id}", method = RequestMethod.GET)
     public String show(@PathVariable int id, ModelMap model) {
         model.addAttribute("user", userService.findById(id));
 
-        return "users/show";
+        return "/users/show";
     }
 }

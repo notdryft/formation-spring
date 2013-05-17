@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +49,12 @@
             </c:choose>
         </small>
     </blockquote>
+
+    <c:if test="${book.borrowed}">
+        <form:form action="${pageContext.request.contextPath}/books/lend/${book.id}" commandName="lend">
+            <button type="submit" class="btn btn-info">Lend book</button>
+        </form:form>
+    </c:if>
 </div>
 </body>
 </html>
