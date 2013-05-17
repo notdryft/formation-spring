@@ -11,17 +11,20 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <a class="brand" href="${pageContext.request.contextPath}/">Library</a>
             <ul class="nav">
-                <li><a href="${pageContext.request.contextPath}/books">Books</a></li>
-                <li class="active"><a href="#">Users</a></li>
+                <li><a href="${pageContext.request.contextPath}/books"><i class="icon-book icon-white"></i> Books</a>
+                </li>
+                <li class="active"><a href="#"><i class="icon-user icon-white"></i> Users</a></li>
             </ul>
         </div>
     </div>
 </div>
+
 <div class="container">
 
     <div class="page-header">
@@ -30,13 +33,20 @@
         </h1>
     </div>
 
-    <c:if test="${!users.isEmpty()}">
-        <ul>
-            <c:forEach var="user" items="${users}">
-                <li><a href="${pageContext.request.contextPath}/users/show/${user.id}">${user.name}</a></li>
-            </c:forEach>
-        </ul>
-    </c:if>
+    <table class="table table-striped">
+        <thead>
+        <th>Id</th>
+        <th>Name</th>
+        </thead>
+        <tbody>
+        <c:forEach var="user" items="${users}">
+            <tr>
+                <td>${user.id}</td>
+                <td><a href="${pageContext.request.contextPath}/users/show/${user.id}">${user.name}</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
