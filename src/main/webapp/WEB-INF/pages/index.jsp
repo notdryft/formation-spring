@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Library</title>
+    <title><spring:message code="library.brand"/></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-2.0.0.min.js"></script>
@@ -14,11 +15,13 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="#">Library</a>
+            <a class="brand" href="#"><spring:message code="library.brand"/></a>
             <ul class="nav">
-                <li><a href="${pageContext.request.contextPath}/books"><i class="icon-book icon-white"></i> Books</a>
+                <li><a href="${pageContext.request.contextPath}/books"><i class="icon-book icon-white"></i>&nbsp;
+                    <spring:message code="library.Books"/></a>
                 </li>
-                <li><a href="${pageContext.request.contextPath}/users"><i class="icon-user icon-white"></i> Users</a>
+                <li><a href="${pageContext.request.contextPath}/users"><i class="icon-user icon-white"></i>&nbsp;
+                    <spring:message code="library.Users"/></a>
                 </li>
             </ul>
         </div>
@@ -28,14 +31,16 @@
 <div class="container">
 
     <div class="page-header">
-        <h1>Dashboard</h1>
+        <h1><spring:message code="library.dashboard"/></h1>
     </div>
 
-    <p>Things you can do:</p>
+    <p><spring:message code="library.dashboard.things"/></p>
 
     <ol>
-        <li>Consult the list of <a href="books">books</a> you can borrow</li>
-        <li>Get to the list of <a href="users">users</a> that can actually borrow a book</li>
+        <li><spring:message code="library.dashboard.consult.firstPart"/> <a href="books"><spring:message
+                code="library.books"/></a> <spring:message code="library.dashboard.consult.lastPart"/></li>
+        <li><spring:message code="library.dashboard.things.get.firstPart"/> <a href="users"><spring:message
+                code="library.users"/></a> <spring:message code="library.dashboard.things.get.lastPart"/></li>
     </ol>
 </div>
 </body>

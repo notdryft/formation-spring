@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Library</title>
+    <title><spring:message code="library.brand"/></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-2.0.0.min.js"></script>
@@ -16,11 +17,12 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="${pageContext.request.contextPath}/">Library</a>
+            <a class="brand" href="${pageContext.request.contextPath}/"><spring:message code="library.brand"/></a>
             <ul class="nav">
                 <li class="active"><a href="${pageContext.request.contextPath}/books"><i
-                        class="icon-book icon-white"></i> Books</a></li>
-                <li><a href="${pageContext.request.contextPath}/users"><i class="icon-user icon-white"></i> Users</a>
+                        class="icon-book icon-white"></i>&nbsp;<spring:message code="library.Books"/></a></li>
+                <li><a href="${pageContext.request.contextPath}/users"><i class="icon-user icon-white"></i>&nbsp;
+                    <spring:message code="library.Users"/></a>
                 </li>
             </ul>
         </div>
@@ -30,8 +32,8 @@
 <div class="container">
 
     <div class="page-header">
-        <h1>Book&nbsp;
-            <small>Dashboard</small>
+        <h1><spring:message code="library.Book"/>&nbsp;
+            <small><spring:message code="library.dashboard"/></small>
         </h1>
     </div>
 
@@ -39,7 +41,7 @@
         <c:when test="${book.borrowed}">
             <form:form action="${pageContext.request.contextPath}/books/lend" commandName="book">
                 <form:hidden path="id"/>
-                <button type="submit" class="btn btn-info">Lend book</button>
+                <button type="submit" class="btn btn-info"><spring:message code="library.books.lend"/></button>
             </form:form>
         </c:when>
         <c:otherwise>
@@ -47,8 +49,9 @@
                 <form:hidden path="id"/>
                 <div class="input-prepend input-append">
                     <span class="add-on"><i class="icon-user"></i></span>
-                    <input name="name" type="text" class="span2" placeholder="Your name">
-                    <button type="submit" class="btn">Borrow book</button>
+                    <input name="name" type="text" class="span2"
+                           placeholder="<spring:message code="library.inputs.name"/>">
+                    <button type="submit" class="btn"><spring:message code="library.books.borrow"/></button>
                 </div>
             </form:form>
         </c:otherwise>
@@ -59,11 +62,13 @@
         <small>
             <c:choose>
                 <c:when test="${book.borrowed}">
-                    <span class="label label-important">Emprunté </span> par <a
+                    <span class="label label-important"><spring:message
+                            code="library.books.borrowed"/></span> <spring:message
+                        code="library.books.borrowed.by"/> <a
                         href="${pageContext.request.contextPath}/users/show/${book.user.id}">${book.user.name}</a>
                 </c:when>
                 <c:otherwise>
-                    <span class="label label-success">Disponible</span>
+                    <span class="label label-success"><spring:message code="library.books.available"/></span>
                 </c:otherwise>
             </c:choose>
         </small>

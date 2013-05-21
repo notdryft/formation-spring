@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Library</title>
+    <title><spring:message code="library.brand"/></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-2.0.0.min.js"></script>
@@ -16,10 +17,12 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="${pageContext.request.contextPath}/">Library</a>
+            <a class="brand" href="${pageContext.request.contextPath}/"><spring:message code="library.brand"/></a>
             <ul class="nav">
-                <li class="active"><a href="#"><i class="icon-book icon-white"></i> Books</a></li>
-                <li><a href="${pageContext.request.contextPath}/users"><i class="icon-user icon-white"></i> Users</a>
+                <li class="active"><a href="#"><i class="icon-book icon-white"></i> <spring:message
+                        code="library.Books"/></a></li>
+                <li><a href="${pageContext.request.contextPath}/users"><i
+                        class="icon-user icon-white"></i> <spring:message code="library.Users"/></a>
                 </li>
             </ul>
         </div>
@@ -29,25 +32,25 @@
 <div class="container">
 
     <div class="page-header">
-        <h1>Books&nbsp;
-            <small>Dashboard</small>
+        <h1><spring:message code="library.Books"/>&nbsp;
+            <small><spring:message code="library.dashboard"/></small>
         </h1>
     </div>
 
     <form:form action="${pageContext.request.contextPath}/books/batchAction">
         <div class="input-prepend input-append">
             <span class="add-on"><i class="icon-user"></i></span>
-            <input name="name" type="text" class="span2" placeholder="Your name">
-            <button type="submit" class="btn">Borrow or lend selected books</button>
+            <input name="name" type="text" class="span2" placeholder="<spring:message code="library.inputs.name"/>">
+            <button type="submit" class="btn"><spring:message code="library.books.batch"/></button>
         </div>
 
         <table class="table table-striped">
             <thead>
             <tr>
-                <th><i class="icon-tag"></i> Id</th>
-                <th><i class="icon-book"></i> Name</th>
-                <th><i class="icon-info-sign"></i> Info</th>
-                <th><i class="icon-tasks"></i> Actions</th>
+                <th><i class="icon-tag"></i> <spring:message code="library.table.id"/></th>
+                <th><i class="icon-book"></i> <spring:message code="library.table.name"/></th>
+                <th><i class="icon-info-sign"></i> <spring:message code="library.table.info"/></th>
+                <th><i class="icon-tasks"></i> <spring:message code="library.table.actions"/></th>
             </tr>
             </thead>
             <tbody>
@@ -58,8 +61,10 @@
                     <td>
                         <c:choose>
                             <c:when test="${book.borrowed}"><span
-                                    class="label label-important">Emprunté &times;</span></c:when>
-                            <c:otherwise><span class="label label-success">Disponible &#10004;</span></c:otherwise>
+                                    class="label label-important"><spring:message
+                                    code="library.books.borrowed"/> &times;</span></c:when>
+                            <c:otherwise><span class="label label-success"><spring:message
+                                    code="library.books.available"/> &#10004;</span></c:otherwise>
                         </c:choose>
                     </td>
                     <td><input name="booksIds" type="checkbox" value="${book.id}"></td>
