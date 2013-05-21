@@ -34,7 +34,12 @@
         </h1>
     </div>
 
-    <form:form action="${pageContext.request.contextPath}/books/batchLend" commandName="book">
+    <form:form action="${pageContext.request.contextPath}/books/batchAction">
+        <div class="input-append">
+            <input name="name" type="text" class="span4" placeholder="Your name">
+            <button type="submit" class="btn">Borrow or lend selected books</button>
+        </div>
+
         <table class="table table-striped">
             <thead>
             <tr>
@@ -56,17 +61,10 @@
                             <c:otherwise><span class="label label-success">Disponible &#10004;</span></c:otherwise>
                         </c:choose>
                     </td>
-                    <td><form:checkboxes path="borrowed" items="${book.id}"/></td>
+                    <td><input name="booksIds" type="checkbox" value="${book.id}"></td>
                 </tr>
             </c:forEach>
             </tbody>
-            <tfoot>
-            <tr>
-                <td colspan="4">
-                    <button type="submit" class="btn btn-info pull-right">Lend all</button>
-                </td>
-            </tr>
-            </tfoot>
         </table>
     </form:form>
 </div>

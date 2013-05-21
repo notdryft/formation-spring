@@ -46,7 +46,7 @@
             <form:form action="${pageContext.request.contextPath}/books/borrow" commandName="book">
                 <form:hidden path="id"/>
                 <div class="input-append">
-                    <input name="name" type="text" class="span2">
+                    <input name="name" type="text" class="span4" placeholder="Your name">
                     <button type="submit" class="btn">Borrow book</button>
                 </div>
             </form:form>

@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Guillaume Corré
@@ -72,8 +70,25 @@ public class BooksController {
         return "redirect:/books/show/" + id;
     }
 
-    @RequestMapping(value = "/batchLend", method = RequestMethod.POST)
-    public String batchLend(@RequestParam List<Integer> books, ModelMap map) {
+    @RequestMapping(value = "/batchAction", method = RequestMethod.POST)
+    public String batchAction(@RequestParam int[] booksIds, @RequestParam String name, ModelMap map) {
+        for (int id : booksIds) {
+            Book book = libraryService.findById(id);
+            if (book != null) {
+                if (book.isBorrowed()) {
+                    book.setBorrowed(false);
+                    book.setUser(null);
+                } else {
+                    User user = userService.findByName(name);
+                    if (user != null) {
+                        book.setBorrowed(true);
+                        book.setUser(user);
+                    }
+                }
+
+                libraryService.update(book);
+            }
+        }
 
         return "redirect:/books";
     }
