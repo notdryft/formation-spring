@@ -44,10 +44,10 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Borrowed?</th>
-                <th>Actions</th>
+                <th><i class="icon-tag"></i> Id</th>
+                <th><i class="icon-book"></i> Name</th>
+                <th><i class="icon-info-sign"></i> Info</th>
+                <th><i class="icon-tasks"></i> Actions</th>
             </tr>
             </thead>
             <tbody>

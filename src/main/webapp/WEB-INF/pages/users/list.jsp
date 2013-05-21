@@ -35,14 +35,31 @@
 
     <table class="table table-striped">
         <thead>
-        <th>Id</th>
-        <th>Name</th>
+        <tr>
+            <th><i class="icon-tag"></i> Id</th>
+            <th><i class="icon-user"></i> Name</th>
+            <th><i class="icon-info-sign"></i> Info</th>
+        </tr>
         </thead>
         <tbody>
         <c:forEach var="user" items="${users}">
+            <c:set var="size" value="${user.books.size()}"/>
             <tr>
                 <td>${user.id}</td>
                 <td><a href="${pageContext.request.contextPath}/users/show/${user.id}">${user.name}</a></td>
+                <td>
+                    <c:choose>
+                        <c:when test="${size == 1}">
+                            <span class="text-info">Borrowed one book</span>
+                        </c:when>
+                        <c:when test="${size > 1}">
+                            <span class="text-success">Borrowed ${size} books</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="muted">Did not borrow anything</span>
+                        </c:otherwise>
+                    </c:choose>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
