@@ -45,8 +45,9 @@
         <c:otherwise>
             <form:form action="${pageContext.request.contextPath}/books/borrow" commandName="book">
                 <form:hidden path="id"/>
-                <div class="input-append">
-                    <input name="name" type="text" class="span4" placeholder="Your name">
+                <div class="input-prepend input-append">
+                    <span class="add-on"><i class="icon-user"></i></span>
+                    <input name="name" type="text" class="span2" placeholder="Your name">
                     <button type="submit" class="btn">Borrow book</button>
                 </div>
             </form:form>

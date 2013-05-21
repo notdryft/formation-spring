@@ -35,8 +35,9 @@
     </div>
 
     <form:form action="${pageContext.request.contextPath}/books/batchAction">
-        <div class="input-append">
-            <input name="name" type="text" class="span4" placeholder="Your name">
+        <div class="input-prepend input-append">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input name="name" type="text" class="span2" placeholder="Your name">
             <button type="submit" class="btn">Borrow or lend selected books</button>
         </div>
 

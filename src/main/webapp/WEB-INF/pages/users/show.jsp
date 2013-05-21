@@ -34,13 +34,10 @@
         </h1>
     </div>
 
-    <dl class="dl-horizontal">
-        <dt>Id</dt>
-        <dd>${user.id}</dd>
+    <dl>
         <dt>Name</dt>
         <dd>&laquo; ${user.name} &raquo;</dd>
     </dl>
-
 
     <div class="well well-large">
 
