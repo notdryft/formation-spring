@@ -6,13 +6,14 @@
 
     <groupId>com.formation.spring</groupId>
     <artifactId>library</artifactId>
-    <version>0.5.MVC</version>
+    <version>0.6.SECURITY</version>
 
     <packaging>war</packaging>
 
     <properties>
         <junit.version>4.11</junit.version>
         <spring.version>3.2.2.RELEASE</spring.version>
+        <spring-security.version>3.1.4.RELEASE</spring-security.version>
         <aspectj.version>1.7.2</aspectj.version>
         <hibernate.version>3.6.10.Final</hibernate.version>
         <javassist.version>3.12.1.GA</javassist.version>
@@ -115,6 +116,22 @@
             <artifactId>standard</artifactId>
             <version>${taglib.version}</version>
             <scope>runtime</scope>
+        </dependency>
+        <!-- Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
         </dependency>
     </dependencies>
 
