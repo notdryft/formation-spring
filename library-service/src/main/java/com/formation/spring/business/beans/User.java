@@ -1,7 +1,6 @@
 package com.formation.spring.business.beans;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.List;
 
