@@ -36,7 +36,8 @@
         </div>
     </c:if>
 
-    <form name="loginForm" action="<c:url value="/j_spring_security_check"/>" method="POST" class="form-horizontal">
+    <form name="loginForm" action="<c:url value="${pageContext.request.contextPath}/j_spring_security_check"/>"
+          method="POST" class="form-horizontal">
         <div class="control-group">
             <label class="control-label" for="inputEmail"><spring:message code="library.forms.email"/></label>
 
