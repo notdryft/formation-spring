@@ -21,13 +21,15 @@ public class LoginController {
 
     @RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
     public String loginFailed(ModelMap model) {
-        model.addAttribute("error", "true");
+        model.addAttribute("error", true);
 
         return "login";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public String logout() {
+    public String logout(ModelMap model) {
+        model.addAttribute("info", true);
+
         return "login";
     }
 }

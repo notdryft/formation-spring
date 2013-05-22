@@ -32,7 +32,15 @@
     <c:if test="${not empty error}">
         <div class="alert alert-error">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Error!</strong> ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
+            <strong><spring:message
+                    code="library.error"/></strong> ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
+        </div>
+    </c:if>
+
+    <c:if test="${not empty info}">
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong><spring:message code="library.info"/></strong> <spring:message code="library.logoutSuccess"/>
         </div>
     </c:if>
 

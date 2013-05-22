@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
@@ -32,7 +33,7 @@
                         <li><a href="${pageContext.request.contextPath}/users/show/${sessionScope.user.id}"><i
                                 class="icon-home"></i> <spring:message code="library.home"/></a></li>
                         <li class="divider"></li>
-                        <li><a href="${pageContext.request.contextPath}/j_spring_security_logout"><i
+                        <li><a href="<c:url value="${pageContext.request.contextPath}/j_spring_security_logout"/>"><i
                                 class="icon-off"></i> <spring:message code="library.logout"/></a></li>
                     </ul>
                 </li>
