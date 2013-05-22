@@ -6,19 +6,19 @@
 <head>
     <meta charset="UTF-8">
     <title><spring:message code="library.brand"/></title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-2.0.0.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<c:url value="/bootstrap/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/css/main.css"/>">
+    <script type="text/javascript" src="<c:url value="/assets/js/jquery-2.0.0.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js"/>"></script>
 </head>
 <body>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="${pageContext.request.contextPath}/"><spring:message code="library.brand"/></a>
+            <a class="brand" href="<c:url value="/"/>"><spring:message code="library.brand"/></a>
             <ul class="nav">
-                <li><a href="${pageContext.request.contextPath}/books"><i
+                <li><a href="<c:url value="/books"/>"><i
                         class="icon-book icon-white"></i> <spring:message code="library.Books"/></a></li>
                 <li class="active"><a href="#"><i
                         class="icon-user icon-white"></i> <spring:message code="library.Users"/></a></li>
@@ -28,10 +28,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="icon-user icon-white"></i> ${sessionScope.user.name} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="${pageContext.request.contextPath}/users/show/${sessionScope.user.id}"><i
+                        <li><a href="<c:url value="/users/show/${sessionScope.user.id}"/>"><i
                                 class="icon-home"></i> <spring:message code="library.home"/></a></li>
                         <li class="divider"></li>
-                        <li><a href="<c:url value="${pageContext.request.contextPath}/j_spring_security_logout"/>"><i
+                        <li><a href="<c:url value="/j_spring_security_logout"/>"><i
                                 class="icon-off"></i> <spring:message code="library.logout"/></a></li>
                     </ul>
                 </li>
@@ -61,7 +61,7 @@
             <c:set var="size" value="${user.books.size()}"/>
             <tr>
                 <td>${user.id}</td>
-                <td><a href="${pageContext.request.contextPath}/users/show/${user.id}">${user.name}</a></td>
+                <td><a href="<c:url value="/users/show/${user.id}"/>">${user.name}</a></td>
                 <td>
                     <c:choose>
                         <c:when test="${size == 1}">

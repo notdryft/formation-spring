@@ -6,17 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <title><spring:message code="library.brand"/></title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-2.0.0.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<c:url value="/bootstrap/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/css/main.css"/>">
+    <script type="text/javascript" src="<c:url value="/assets/js/jquery-2.0.0.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js"/>"></script>
 </head>
 <body onload="document.loginForm.j_username.focus()">
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="${pageContext.request.contextPath}/"><spring:message code="library.brand"/></a>
+            <a class="brand" href="<c:url value="/"/>"><spring:message code="library.brand"/></a>
         </div>
     </div>
 </div>
@@ -44,7 +44,7 @@
         </div>
     </c:if>
 
-    <form name="loginForm" action="<c:url value="${pageContext.request.contextPath}/j_spring_security_check"/>"
+    <form name="loginForm" action="<c:url value="/j_spring_security_check"/>"
           method="POST" class="form-horizontal">
         <div class="control-group">
             <label class="control-label" for="inputEmail"><spring:message code="library.forms.email"/></label>

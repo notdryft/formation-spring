@@ -7,21 +7,21 @@
 <head>
     <meta charset="UTF-8">
     <title><spring:message code="library.brand"/></title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-2.0.0.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<c:url value="/bootstrap/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/css/main.css"/>">
+    <script type="text/javascript" src="<c:url value="/assets/js/jquery-2.0.0.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js"/>"></script>
 </head>
 <body>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="${pageContext.request.contextPath}/"><spring:message code="library.brand"/></a>
+            <a class="brand" href="<c:url value="/"/>"><spring:message code="library.brand"/></a>
             <ul class="nav">
                 <li class="active"><a href="#"><i class="icon-book icon-white"></i> <spring:message
                         code="library.Books"/></a></li>
-                <li><a href="${pageContext.request.contextPath}/users"><i
+                <li><a href="<c:url value="/users"/>"><i
                         class="icon-user icon-white"></i> <spring:message code="library.Users"/></a>
                 </li>
             </ul>
@@ -30,10 +30,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="icon-user icon-white"></i> ${sessionScope.user.name} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="${pageContext.request.contextPath}/users/show/${sessionScope.user.id}"><i
+                        <li><a href="<c:url value="/users/show/${sessionScope.user.id}"/>"><i
                                 class="icon-home"></i> <spring:message code="library.home"/></a></li>
                         <li class="divider"></li>
-                        <li><a href="<c:url value="${pageContext.request.contextPath}/j_spring_security_logout"/>"><i
+                        <li><a href="<c:url value="/j_spring_security_logout"/>"><i
                                 class="icon-off"></i> <spring:message code="library.logout"/></a></li>
                     </ul>
                 </li>
@@ -50,7 +50,7 @@
         </h1>
     </div>
 
-    <form:form action="${pageContext.request.contextPath}/books/batchAction">
+    <form:form action="/books/batchAction">
         <div class="input-prepend input-append">
             <span class="add-on"><i class="icon-user"></i></span>
             <input name="name" type="text" class="span2" placeholder="<spring:message code="library.inputs.name"/>">
@@ -70,7 +70,7 @@
             <c:forEach var="book" items="${books}">
                 <tr class="<c:if test="${!book.borrowed}">success</c:if>">
                     <td>${book.id}</td>
-                    <td><a href="${pageContext.request.contextPath}/books/show/${book.id}">${book.name}</a></td>
+                    <td><a href="<c:url value="/books/show/${book.id}"/>">${book.name}</a></td>
                     <td>
                         <c:choose>
                             <c:when test="${book.borrowed}"><span
