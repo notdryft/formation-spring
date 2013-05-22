@@ -24,6 +24,19 @@
                     <spring:message code="library.Users"/></a>
                 </li>
             </ul>
+            <ul class="nav pull-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                            class="icon-user icon-white"></i> ${user.name} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="${pageContext.request.contextPath}/users/show/${user.id}"><i
+                                class="icon-home"></i> <spring:message code="library.home"/></a></li>
+                        <li class="divider"></li>
+                        <li><a href="${pageContext.request.contextPath}/j_spring_security_logout"><i
+                                class="icon-off"></i> <spring:message code="library.logout"/></a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
