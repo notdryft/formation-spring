@@ -16,7 +16,10 @@ import java.util.List;
  * Time: 9:09 PM
  */
 @Service
-@WebService(endpointInterface = "com.formation.spring.business.services.UserService")
+@WebService(
+        serviceName = "SimpleUserService",
+        portName = "SimpleUserPort",
+        endpointInterface = "com.formation.spring.business.services.UserService")
 public class SimpleUserService implements UserService {
 
     @Autowired

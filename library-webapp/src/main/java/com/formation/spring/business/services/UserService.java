@@ -2,6 +2,7 @@ package com.formation.spring.business.services;
 
 import com.formation.spring.business.beans.User;
 
+import javax.jws.WebService;
 import java.util.List;
 
 /**
@@ -10,6 +11,7 @@ import java.util.List;
  * Date: 5/14/13
  * Time: 9:07 PM
  */
+@WebService
 public interface UserService {
 
     User save(User user);

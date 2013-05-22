@@ -2,6 +2,7 @@ package com.formation.spring.business.services;
 
 import com.formation.spring.business.beans.Book;
 
+import javax.jws.WebService;
 import java.util.List;
 
 /**
@@ -10,6 +11,7 @@ import java.util.List;
  * Date: 13/05/13
  * Time: 14:44
  */
+@WebService
 public interface LibraryService {
 
     Book save(Book book);

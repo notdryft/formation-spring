@@ -17,7 +17,10 @@ import java.util.List;
  * Time: 15:02
  */
 @Service
-@WebService(endpointInterface = "com.formation.spring.business.services.LibraryService")
+@WebService(
+        serviceName = "SimpleLibraryService",
+        portName = "SimpleLibraryPort",
+        endpointInterface = "com.formation.spring.business.services.LibraryService")
 public class SimpleLibraryService implements LibraryService {
 
     @Autowired
