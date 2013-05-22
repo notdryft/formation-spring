@@ -12,8 +12,8 @@
     <http auto-config="true" pattern="/assets/**" security="none"/>
 
     <http auto-config="true">
-        <intercept-url pattern="/books*" access="ROLE_LIBRARIAN"/>
-        <intercept-url pattern="/users*" access="ROLE_LIBRARIAN"/>
+        <intercept-url pattern="/books/**" access="ROLE_LIBRARIAN"/>
+        <intercept-url pattern="/users/**" access="ROLE_LIBRARIAN"/>
         <intercept-url pattern="/**" access="ROLE_USER, ROLE_LIBRARIAN"/>
         <form-login login-page="/login" default-target-url="/" authentication-failure-url="/loginfailed"/>
         <logout logout-success-url="/logout"/>
@@ -25,7 +25,6 @@
             <user-service>
                 <user name="Guillaume" password="ad87900fa7317be7430838e322359a519c309f9fac8060d400d23d7e18c7a568"
                       authorities="ROLE_LIBRARIAN"/>
-
                 <user name="Glenn" password="70fe8d030e3d494da09c09e5ff93220ee32b47444ceb1154a6cb72854c4cc9e6"
                       authorities="ROLE_USER"/>
                 <user name="Evgeny" password="94b2129e05ac794c2ea5e92809c5a653b1884761dde190be3aa6f76da7744a25"
