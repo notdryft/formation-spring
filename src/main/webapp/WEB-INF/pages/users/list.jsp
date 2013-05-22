@@ -38,9 +38,9 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th><i class="icon-tag"></i> <spring:message code="library.table.id"/></th>
-            <th><i class="icon-user"></i> <spring:message code="library.table.name"/></th>
-            <th><i class="icon-info-sign"></i> <spring:message code="library.table.info"/></th>
+            <th><i class="icon-tag"></i> <spring:message code="library.forms.id"/></th>
+            <th><i class="icon-user"></i> <spring:message code="library.forms.name"/></th>
+            <th><i class="icon-info-sign"></i> <spring:message code="library.forms.info"/></th>
         </tr>
         </thead>
         <tbody>

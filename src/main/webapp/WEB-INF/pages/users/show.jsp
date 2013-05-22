@@ -38,7 +38,7 @@
     </div>
 
     <dl>
-        <dt><spring:message code="library.table.name"/></dt>
+        <dt><spring:message code="library.forms.name"/></dt>
         <dd>&laquo; ${user.name} &raquo;</dd>
     </dl>
 

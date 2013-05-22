@@ -47,10 +47,10 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th><i class="icon-tag"></i> <spring:message code="library.table.id"/></th>
-                <th><i class="icon-book"></i> <spring:message code="library.table.name"/></th>
-                <th><i class="icon-info-sign"></i> <spring:message code="library.table.info"/></th>
-                <th><i class="icon-tasks"></i> <spring:message code="library.table.actions"/></th>
+                <th><i class="icon-tag"></i> <spring:message code="library.forms.id"/></th>
+                <th><i class="icon-book"></i> <spring:message code="library.forms.name"/></th>
+                <th><i class="icon-info-sign"></i> <spring:message code="library.forms.info"/></th>
+                <th><i class="icon-tasks"></i> <spring:message code="library.forms.actions"/></th>
             </tr>
             </thead>
             <tbody>
