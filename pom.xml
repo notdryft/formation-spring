@@ -14,6 +14,7 @@
         <junit.version>4.11</junit.version>
         <spring.version>3.2.2.RELEASE</spring.version>
         <spring-security.version>3.1.4.RELEASE</spring-security.version>
+        <servlet.version>2.5</servlet.version>
         <aspectj.version>1.7.2</aspectj.version>
         <hibernate.version>3.6.10.Final</hibernate.version>
         <javassist.version>3.12.1.GA</javassist.version>
@@ -46,6 +47,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
         </dependency>
         <!-- IOC -->
         <dependency>

@@ -4,10 +4,10 @@ import com.formation.spring.business.beans.User;
 import com.formation.spring.business.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.security.Principal;
 
 /**
@@ -24,9 +24,9 @@ public class IndexController {
     private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String index(ModelMap model, Principal principal) {
+    public String index(Principal principal, HttpSession session) {
         User user = userService.findByName(principal.getName());
-        model.addAttribute("user", user);
+        session.setAttribute("user", user);
 
         return "index";
     }

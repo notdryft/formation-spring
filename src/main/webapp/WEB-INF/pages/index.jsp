@@ -27,9 +27,9 @@
             <ul class="nav pull-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-user icon-white"></i> ${user.name} <b class="caret"></b></a>
+                            class="icon-user icon-white"></i> ${sessionScope.user.name} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="${pageContext.request.contextPath}/users/show/${user.id}"><i
+                        <li><a href="${pageContext.request.contextPath}/users/show/${sessionScope.user.id}"><i
                                 class="icon-home"></i> <spring:message code="library.home"/></a></li>
                         <li class="divider"></li>
                         <li><a href="${pageContext.request.contextPath}/j_spring_security_logout"><i
