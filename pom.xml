@@ -9,6 +9,7 @@
     <version>0.7.WS</version>
     <modules>
         <module>library-webapp</module>
+        <module>library-service</module>
     </modules>
 
     <packaging>pom</packaging>
